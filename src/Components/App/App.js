@@ -8,6 +8,10 @@ function App() {
   const [playlists, setPlaylists] = useState([{
     id: 0,
     name: 'Chill'
+  },
+  {
+    id: 1,
+    name: 'Summer'
   }]);
 
   return (
