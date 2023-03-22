@@ -1,9 +1,9 @@
-.Playlist {
+.NewPlaylist {
     display: flex;
     align-items: center;
 }
   
-.Playlist-information {
+.NewPlaylist-information {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     color: lightgray;
 }
 
-.Playlist-action {
+.NewPlaylist-action {
     cursor: pointer;
     padding: .5rem;
     font-size: 1.05rem;
@@ -22,11 +22,10 @@
     color: lightgray;
 }
   
-.Playlist-action:hover {
+.NewPlaylist-action:hover {
     color: rgba(265, 265, 265, .5);
-  }
-  
-.Playlist-information h3 {
+}
+
+.NewPlaylist-information h3 {
     margin-bottom: .22rem;
 }
-  

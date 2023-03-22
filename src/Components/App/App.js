@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 
 import Playlists from '../Playlists/Playlists';
+import TrackList from '../TrackList/TrackList';
+import SearchBar from '../SearchBar/SearchBar';
+import PlaylistMod from '../PlaylistMod/PlaylistMod';
 
 function App() {
   
@@ -14,11 +17,18 @@ function App() {
     name: 'Summer'
   }]);
 
+  const [tracklist, setTracklist] = useState([]);
+  
   return (
     <div>
       <h1>Ta<span className="highlight">ggg</span>ing</h1>
       <div className="App">
-        <Playlists playlists={playlists} />
+        <SearchBar />
+        <div className="App-playlist">
+          <Playlists playlists={playlists} />
+          <TrackList tracklist={tracklist} />
+          <PlaylistMod playlists={playlists} />
+        </div>
       </div>
     </div>
   )

@@ -2,8 +2,19 @@ import React from 'react';
 import './Playlist.css';
 
 function Playlist(props) {
+    function renderAction() {
+        if (props.isAddition) {
+            return <button className="Playlist-action">+</button>
+        }
+    }
+
     return (
-        <h2>{props.playlist.name}</h2>
+        <div className="Playlist">
+            <div className="Playlist-information">
+                <h3>{props.playlist.name}</h3>
+            </div>
+            {renderAction()}
+        </div>
     )
 }
 
