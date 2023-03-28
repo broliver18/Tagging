@@ -29,6 +29,10 @@ h2 {
   color: #fff;
 }
 
+.Nav-button {
+  display: none;
+}
+
 .App-playlist {
   display: flex;
   justify-content: space-between;
