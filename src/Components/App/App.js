@@ -18,10 +18,21 @@ function App() {
   }]);
 
   const [tracklist, setTracklist] = useState([]);
+
+  const [open, setOpen] = useState(true);
+
+  function toggleOpen() {
+    setOpen(!open);
+  }
   
   return (
     <div>
       <div className="Container">
+        <button className="Nav-button" onClick={toggleOpen} >
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
         <PlaylistNav playlists={playlists} />
         <div className="App">
           <SearchBar />
