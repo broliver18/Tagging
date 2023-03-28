@@ -1,12 +1,12 @@
 import React from 'react';
-import './Playlists.css';
+import './PlaylistNav.css';
 
 import Playlist from '../Playlist/Playlist';
 
-function Playlists(props) {
+function PlaylistNav(props) {
     return (
-        <div className="Playlists">
-            <h2>Playlists</h2>
+        <div className="PlaylistNav">
+            <h1>Ta<span className="highlight">ggg</span>ing</h1>
             {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
@@ -18,4 +18,4 @@ function Playlists(props) {
     )
 }
 
-export default Playlists;
+export default PlaylistNav;

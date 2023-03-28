@@ -2,15 +2,6 @@
     display: flex;
     align-items: center;
 }
-  
-.Playlist-information {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 40px;
-    color: lightgray;
-}
 
 .Playlist-action {
     cursor: pointer;
@@ -24,9 +15,18 @@
   
 .Playlist-action:hover {
     color: rgba(265, 265, 265, .5);
-  }
+}
+  
+.Playlist-information {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px;
+    color: lightgray;
+}
   
 .Playlist-information h3 {
-    margin-bottom: .22rem;
+    margin-bottom: .25rem;
 }
   

@@ -8,26 +8,17 @@ html {
   font-size: 18px;
 }
 
-h1 {
-  padding: .77rem 0;
-  background-color: #010c3f;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.88rem;
-  color: #fff;
-}
-
-h1 .highlight {
-  color: #6c41ec;
-}
-
 h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.55rem;
-}
+  margin-bottom: 1rem;
+} 
 
 .App {
-  height: 100%;
+  box-sizing: content-box;
+  position: absolute;
+  left: 260px;
+  right: 0;
   padding: 0 10% 10% 10%;
   background-image: url('./background_photo_desktop.jpg');
   background-size: cover;

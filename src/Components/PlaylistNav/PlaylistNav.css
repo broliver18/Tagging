@@ -1,0 +1,36 @@
+.PlaylistNav {
+  box-sizing: content-box;
+  position: fixed;
+  width: 230px;
+  height: 100%;
+  overflow-y: scroll;
+  padding: .88rem;
+  background-color: rgba(1, 12, 63);
+  box-shadow: 0 4px 2px 2px #000000;
+  z-index: 1;
+}
+
+h1 {
+  padding: .77rem 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.88rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+h1 .highlight {
+  color: #6c41ec;
+}
+  
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+  
+@media only screen and (max-width: 1020px) {
+  .Playlists {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 
-import Playlists from '../Playlists/Playlists';
+import PlaylistNav from '../PlaylistNav/PlaylistNav';
 import TrackList from '../TrackList/TrackList';
 import SearchBar from '../SearchBar/SearchBar';
 import PlaylistMod from '../PlaylistMod/PlaylistMod';
@@ -21,13 +21,14 @@ function App() {
   
   return (
     <div>
-      <h1>Ta<span className="highlight">ggg</span>ing</h1>
-      <div className="App">
-        <SearchBar />
-        <div className="App-playlist">
-          <Playlists playlists={playlists} />
-          <TrackList tracklist={tracklist} />
-          <PlaylistMod playlists={playlists} />
+      <div className="Container">
+        <PlaylistNav playlists={playlists} />
+        <div className="App">
+          <SearchBar />
+          <div className="App-playlist">
+            <TrackList tracklist={tracklist} />
+            <PlaylistMod playlists={playlists} />
+          </div>
         </div>
       </div>
     </div>
