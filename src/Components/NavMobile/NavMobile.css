@@ -1,20 +1,15 @@
 .NavMobile {
    display: none;
+   position: fixed;
+   width: 100%;
    margin: 0;
    padding: 0;
-}
-
-.NavOpen, NavClose {
-    display: fixed;
-    top: 0;
-    width: 100%;
-    height: 0;
 }
 
 @media only screen and (max-width: 1020px) {
     .NavMobile {
         display: block;
-        height: auto;
+        height: 100%;
     }
 
     .NavClose {
@@ -40,19 +35,41 @@
         position: absolute;
         right: 1.5rem;
         background-color: transparent;
-        margin: 0;
         padding-top: 0.5rem;
     }
 
-    .Menu-open:hover {
+    .Menu-open:hover, .Menu-close:hover {
         cursor: pointer;
     }
 
     .Menu-open div {
         width: 35px;
         height: 5px;
-        background-color: white;
+        background-color: #fff;
         margin: 6px 0;
     }
+
+    .NavOpen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: rgba(1, 12, 63);
+    }
+
+    .Menu-close {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        background-color: transparent;
+        padding-top: 0.5rem;
+    }
+
+    .Menu-close h1 {
+        color: #fff;
+    }
+
 }
 
