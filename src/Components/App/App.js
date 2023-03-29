@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 
-import PlaylistNav from '../PlaylistNav/PlaylistNav';
+import Navigation from '../Navigation/Navigation';
 import TrackList from '../TrackList/TrackList';
 import SearchBar from '../SearchBar/SearchBar';
 import PlaylistMod from '../PlaylistMod/PlaylistMod';
@@ -33,7 +33,7 @@ function App() {
           <div></div>
           <div></div>
         </button>
-        {open ? <PlaylistNav playlists={playlists}/> : 
+        {open ? <Navigation playlists={playlists}/> : 
         <div className="Open-nav"></div>}
         <div className="App">
           <SearchBar/>

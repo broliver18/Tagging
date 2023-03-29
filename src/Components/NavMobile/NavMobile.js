@@ -1,9 +1,9 @@
 import React from 'react';
-import './PlaylistNav.css';
+import './NavMobile.css';
 
 import Playlist from '../Playlist/Playlist';
 
-function PlaylistNav(props) {
+function NavMobile(props) {
     return (
         <div className="PlaylistNav">
             <h1>Ta<span className="highlight">ggg</span>ing</h1>
@@ -18,4 +18,4 @@ function PlaylistNav(props) {
     )
 }
 
-export default PlaylistNav;
+export default NavMobile

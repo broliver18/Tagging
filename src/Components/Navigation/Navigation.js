@@ -1,11 +1,11 @@
 import React from 'react';
-import './PlaylistNavMobile.css';
+import './Navigation.css';
 
 import Playlist from '../Playlist/Playlist';
 
-function PlaylistNavMobile(props) {
+function Navigation(props) {
     return (
-        <div className="PlaylistNav">
+        <div className="Navigation">
             <h1>Ta<span className="highlight">ggg</span>ing</h1>
             {
                 props.playlists.map((playlist) => {
@@ -18,4 +18,4 @@ function PlaylistNavMobile(props) {
     )
 }
 
-export default PlaylistNavMobile
+export default Navigation;
