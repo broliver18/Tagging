@@ -1,3 +1,58 @@
 .NavMobile {
-    display: none;
+   display: none;
+   margin: 0;
+   padding: 0;
 }
+
+.NavOpen, NavClose {
+    display: fixed;
+    top: 0;
+    width: 100%;
+    height: 0;
+}
+
+@media only screen and (max-width: 1020px) {
+    .NavMobile {
+        display: block;
+        height: auto;
+    }
+
+    .NavClose {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(1, 12, 63);
+        height: 3.2rem; 
+    }
+
+    .NavClose h1 {
+        padding: .5rem 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.88rem;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    .NavClose h1 .highlight {
+        color: #6c41ec;
+    }
+
+    .Menu-open {
+        position: absolute;
+        right: 1.5rem;
+        background-color: transparent;
+        margin: 0;
+        padding-top: 0.5rem;
+    }
+
+    .Menu-open:hover {
+        cursor: pointer;
+    }
+
+    .Menu-open div {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+    }
+}
+

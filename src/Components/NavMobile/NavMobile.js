@@ -15,11 +15,11 @@ function NavMobile(props) {
         return (
             <div className="NavClose">
                 <h1>Ta<span className="highlight">ggg</span>ing</h1>
-                <button class="Menu-open" onClick={toggleOpen}>
+                <div className="Menu-open" onClick={toggleOpen}>
                     <div></div>
                     <div></div>
                     <div></div>
-                </button>
+                </div>
             </div>
         )
     }
@@ -27,11 +27,11 @@ function NavMobile(props) {
     function navOpen() {
         return (
             <div className="NavOpen">
-                <button class="Menu-close" onClick={toggleOpen}>
+                <div class="Menu-close" onClick={toggleOpen}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>
-                </button>
+                </div>
             {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
