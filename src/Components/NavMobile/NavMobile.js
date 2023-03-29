@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavMobile.css';
 
 import Playlist from '../Playlist/Playlist';
 
 function NavMobile(props) {
-    return (
-        <div className="PlaylistNav">
-            <h1>Ta<span className="highlight">ggg</span>ing</h1>
+
+    const [open, setOpen] = useState(false);
+
+    function toggleOpen() {
+        setOpen(!open);
+    }
+
+    function navClose() {
+        return (
+            <div className="NavClose">
+                <h1>Ta<span className="highlight">ggg</span>ing</h1>
+                <button class="Menu-open" onClick={toggleOpen}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </div>
+        )
+    }
+
+    function navOpen() {
+        return (
+            <div className="NavOpen">
+                <button class="Menu-close" onClick={toggleOpen}>
+                    <div className="bar1"></div>
+                    <div className="bar2"></div>
+                    <div className="bar3"></div>
+                </button>
             {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
@@ -14,7 +39,14 @@ function NavMobile(props) {
                             isAddition={false} />
                 })
             }
-        </div>
+            </div>
+        )
+    }
+
+    return (
+       <div className="NavMobile">
+            {open ? navOpen() : navClose()}
+       </div>
     )
 }
 
