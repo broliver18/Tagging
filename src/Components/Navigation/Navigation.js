@@ -11,7 +11,7 @@ function Navigation(props) {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
                             key={playlist.key}
-                            isAddition={false}/>
+                            isAddition={false} />
                 })
             }
         </div>

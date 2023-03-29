@@ -12,7 +12,7 @@ function PlaylistMod(props) {
             {props.playlists.map((playlist) => {
                 return <Playlist playlist={playlist}
                         key={playlist.key}
-                        isAddition={true}/>
+                        isAddition={true} />
             })}
         </div>
     )
