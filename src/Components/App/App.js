@@ -28,17 +28,18 @@ function App() {
   return (
     <div>
       <div className="Container">
-        <button className="Nav-button" onClick={toggleOpen} >
+        <button className="Nav-button" onClick={toggleOpen}>
           <div></div>
           <div></div>
           <div></div>
         </button>
-        <PlaylistNav playlists={playlists} />
+        {open ? <PlaylistNav playlists={playlists}/> : 
+        <div className="Open-nav"></div>}
         <div className="App">
-          <SearchBar />
+          <SearchBar/>
           <div className="App-playlist">
-            <TrackList tracklist={tracklist} />
-            <PlaylistMod playlists={playlists} />
+            <TrackList tracklist={tracklist}/>
+            <PlaylistMod playlists={playlists}/>
           </div>
         </div>
       </div>

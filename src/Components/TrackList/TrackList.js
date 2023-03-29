@@ -9,7 +9,7 @@ function TrackList(props) {
             <h2>Songs</h2>
             {props.tracklist.map((track) => {
                 return <Track track={track} 
-                        key={track.key} />
+                        key={track.key}/>
             })}
         </div>
     )
