@@ -33,4 +33,8 @@ h1 .highlight {
     width: 90%;
     margin-bottom: 2rem;
   }
+
+  .Navigation {
+    display: none;
+  }
 }

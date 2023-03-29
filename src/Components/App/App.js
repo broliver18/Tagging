@@ -23,10 +23,8 @@ function App() {
   return (
     <div>
       <div className="Container">
-        <Navigation playlists={playlists} />
-        <div className="NavMobile">
-          <NavMobile playlists={playlists} />
-        </div>  
+        <Navigation playlists={playlists} /> 
+        <NavMobile playlists={playlists} /> 
         <div className="App">
           <SearchBar/>
           <div className="App-playlist">

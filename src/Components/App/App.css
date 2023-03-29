@@ -29,10 +29,6 @@ h2 {
   color: #fff;
 }
 
-.NavMobile {
-  display: none;
-}
-
 .App-playlist {
   display: flex;
   justify-content: space-between;
@@ -43,5 +39,10 @@ h2 {
   .App-playlist {
     align-items: center;
     flex-direction: column;
+  }
+
+  .App {
+    position: static;
+    left: 0;
   }
 }
