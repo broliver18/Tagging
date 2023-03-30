@@ -6,6 +6,7 @@ import NavMobile from '../NavMobile/NavMobile';
 import TrackList from '../TrackList/TrackList';
 import SearchBar from '../SearchBar/SearchBar';
 import PlaylistMod from '../PlaylistMod/PlaylistMod';
+import NavOpen from '../NavOpen/NavOpen';
 
 function App() {
   
@@ -19,12 +20,21 @@ function App() {
   }]);
 
   const [tracklist, setTracklist] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  function toggleOpen() {
+    setOpen(!open);
+  }
   
   return (
     <div>
       <div className="Container">
         <Navigation playlists={playlists} /> 
-        <NavMobile playlists={playlists} /> 
+        <NavMobile toggleOpen={toggleOpen}>
+          {open && <NavOpen playlists={playlists}
+                          toggleOpen={toggleOpen} />}
+        </NavMobile>  
         <div className="App">
           <SearchBar/>
           <div className="App-playlist">
