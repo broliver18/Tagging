@@ -28,15 +28,18 @@ function NavMobile(props) {
         return (
             <div className="NavOpen">
                 <div class="Menu-close" onClick={toggleOpen}>
-                   <h1>X</h1>
+                   <div></div>
                 </div>
-            {
-                props.playlists.map((playlist) => {
-                    return <Playlist playlist={playlist}
-                            key={playlist.key}
-                            isAddition={false} />
-                })
-            }
+                <div className="Playlist-container">
+                {
+                    props.playlists.map((playlist) => {
+                        return <Playlist playlist={playlist}
+                                key={playlist.key}
+                                isAddition={false} />
+                            
+                    })
+                }
+            </div>
             </div>
         )
     }
