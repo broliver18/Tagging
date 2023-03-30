@@ -40,7 +40,7 @@ function NavMobile(props) {
                             
                     })
                 }
-            </div>
+                </div>
             </div>
         )
     }
