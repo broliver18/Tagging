@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import './NavMobile.css';
 
 import Playlist from '../Playlist/Playlist';
