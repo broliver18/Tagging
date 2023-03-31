@@ -4,9 +4,10 @@
         top: 3.2rem;
         right: 0.5rem;
         width: 34%;
-        height: 100%;
+        min-height: 300px;
         overflow-y: scroll;
         background-color: rgba(1, 12, 63);
+        border-radius: 4px;
     }
 
     .Playlist-container {
