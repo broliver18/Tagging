@@ -21,18 +21,25 @@ function App() {
 
   const [tracklist, setTracklist] = useState([]);
   const [open, setOpen] = useState(false);
+  const [isActive, setActive] = useState(false);
 
 
-  function toggleOpen() {
+  function toggleOpen(x) {
     setOpen(!open);
   }
+
+  function toggleClass() {
+    setActive(!isActive)
+}
   
   return (
     <div>
       <div className="Container">
         <Navigation playlists={playlists} /> 
-        <NavMobile toggleOpen={toggleOpen} open={open}>
-          <NavOpen playlists={playlists} toggleOpen={toggleOpen} />
+        <NavMobile toggleOpen={toggleOpen} open={open}
+                toggleClass={toggleClass} isActive={isActive}>
+          <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
+                toggleClass={toggleClass} isActive={isActive}/>
         </NavMobile>  
         <div className="App">
           <SearchBar/>

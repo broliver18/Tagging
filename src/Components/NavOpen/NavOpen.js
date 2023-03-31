@@ -6,7 +6,10 @@ import Playlist from '../Playlist/Playlist';
 function NavOpen(props) {
     return (
         <div className="NavOpen">
-            <div className="Button-close" onClick={props.toggleOpen}>
+            <div className="Button-close" onClick={() => {
+                props.toggleOpen();
+                props.toggleClass();
+            }}>
                 <div></div>
             </div>
             <div className="Playlist-container">
