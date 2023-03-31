@@ -12,7 +12,7 @@ function NavMobile(props) {
                 <div></div>
                 <div></div>
             </div>
-            {props.children}
+            {props.open && props.children}
         </div>
     )
 }

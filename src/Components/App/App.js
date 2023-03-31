@@ -32,8 +32,7 @@ function App() {
       <div className="Container">
         <Navigation playlists={playlists} /> 
         <NavMobile toggleOpen={toggleOpen} open={open}>
-          {open && <NavOpen playlists={playlists} 
-                        toggleOpen={toggleOpen} />}
+          <NavOpen playlists={playlists} toggleOpen={toggleOpen} />
         </NavMobile>  
         <div className="App">
           <SearchBar/>
