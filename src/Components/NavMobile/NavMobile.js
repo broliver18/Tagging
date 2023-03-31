@@ -7,7 +7,7 @@ function NavMobile(props) {
     return (
         <div className="NavMobile">
             <h1>Ta<span className="highlight">ggg</span>ing</h1>
-            <div className="Menu-open" onClick={props.toggleOpen} >
+            <div className="Button-open" onClick={props.toggleOpen} >
                 <div></div>
                 <div></div>
                 <div></div>

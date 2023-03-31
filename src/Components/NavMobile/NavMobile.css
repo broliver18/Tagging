@@ -26,18 +26,19 @@
         color: #6c41ec;
     }
 
-    .Menu-open {
+    .Button-open {
         position: absolute;
         right: 1.5rem;
         background-color: transparent;
         padding-top: 0.5rem;
     }
 
-    .Menu-open:hover, .Menu-close:hover {
+    .Button-open:hover, .Menu-close:hover {
         cursor: pointer;
+
     }
 
-    .Menu-open div {
+    .Button-open div {
         width: 35px;
         height: 5px;
         background-color: #fff;
