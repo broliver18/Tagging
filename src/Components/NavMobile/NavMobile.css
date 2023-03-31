@@ -32,11 +32,7 @@
         right: 1rem;
         background-color: transparent;
         padding-top: 0.5rem;
-    }
-
-    .Button-open:hover, .Menu-close:hover {
         cursor: pointer;
-
     }
 
     .Button-open div {

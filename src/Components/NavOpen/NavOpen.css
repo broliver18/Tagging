@@ -20,9 +20,6 @@
 
     .Button-close {
         display: none;
-    }
-
-    .Button-close:hover {
         cursor: pointer;
     }
 
