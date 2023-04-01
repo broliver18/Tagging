@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './NavMobile.css';
 
@@ -15,7 +15,13 @@ function NavMobile(props) {
                 <div className="bar2"></div>
                 <div className="bar3"></div>
             </div>
-            {props.open && props.children}
+            <CSSTransition 
+            in={props.open}
+            timeout={500}
+            className="Playlist-open"
+            unmountOnExit>
+                {props.children}
+            </CSSTransition>
         </div>
     )
 }
