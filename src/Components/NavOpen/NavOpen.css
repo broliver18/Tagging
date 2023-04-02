@@ -19,6 +19,7 @@
 
     .Button-close {
         display: none;
+        cursor: pointer;
     }
 
     .Button-close:before {
