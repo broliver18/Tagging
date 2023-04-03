@@ -56,19 +56,22 @@
     }
 
     .Playlist-open-enter {
-    
+        position: absolute;
+        transform: translateX(110%);
     }
 
     .Playlist-open-enter-active {
-        
+        transform: translateX(0%);
+        transition: all 400ms ease;
     }
 
     .Playlist-open-exit {
-  
+        position: absolute;
     }
 
     .Playlist-open-exit-active {
-      
+        transform: translateX(110%);
+        transition: all 400ms ease;
     }   
 }
 
