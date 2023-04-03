@@ -11,6 +11,31 @@
     width: 0px;
     background: transparent;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 47.5rem;    
+}
+
+.select-button, .delete-button {
+    cursor: pointer;
+    width: 9rem;
+    padding: .77rem 0;
+    border-radius: 54px;
+    background-color: #fff;
+    text-align: center;
+    font-size: .833rem;
+    transition: background-color .25s;
+    border: 0px;
+    color: #010c3f;
+    font-weight: 500;
+}
+
+.select-button:hover, .delete-button:hover {
+    color: #6c41ec
+}
   
 @media only screen and (max-width: 1020px) {
     .TrackList {

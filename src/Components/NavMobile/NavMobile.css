@@ -40,7 +40,7 @@
         height: 5px;
         background-color: #fff;
         margin: 6px 0;
-        transition: 0.4s;
+        transition: 0.3s;
     }
 
     .change .bar1 {
@@ -62,7 +62,7 @@
 
     .Playlist-open-enter-active {
         transform: translateX(0%);
-        transition: all 400ms ease;
+        transition: all 300ms ease;
     }
 
     .Playlist-open-exit {
@@ -71,7 +71,7 @@
 
     .Playlist-open-exit-active {
         transform: translateX(110%);
-        transition: all 400ms ease;
+        transition: all 300ms ease;
     }   
 }
 

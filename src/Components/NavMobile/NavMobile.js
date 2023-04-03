@@ -17,7 +17,7 @@ function NavMobile(props) {
             </div>
             <CSSTransition 
             in={props.open}
-            timeout={400}
+            timeout={300}
             classNames="Playlist-open"
             unmountOnExit>
                 {props.children}

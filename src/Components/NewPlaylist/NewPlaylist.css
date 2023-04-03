@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     height: 40px;
-    color: lightgray;
+    color: #fff;
 }
 
 .NewPlaylist-action {
@@ -19,7 +19,7 @@
     transition: color .25s;
     border: 0px;
     background-color: rgba(0, 0, 0, 0);
-    color: lightgray;
+    color: #fff;
 }
   
 .NewPlaylist-action:hover {

@@ -11,6 +11,10 @@ function TrackList(props) {
                 return <Track track={track} 
                         key={track.key} />
             })}
+            <div className="buttons">
+                <button className="select-button">Select All</button>
+                <button className="delete-button">Delete From Playlist</button>
+            </div>
         </div>
     )
 }
