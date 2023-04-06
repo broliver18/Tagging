@@ -22,6 +22,27 @@ h1 {
 h1 .highlight {
   color: #6c41ec;
 }
+
+.Navigation-login {
+  padding-bottom: 1.5rem;
+  border-bottom: solid 1px gray;
+  margin-top: 2rem;
+}
+
+.Navigation-login h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Navigation-login h3:hover {
+  color: #6c41ec;
+}
+
+.Playlists {
+  margin-top: 1.5rem;
+}
   
 ::-webkit-scrollbar {
   width: 0px;
@@ -29,11 +50,6 @@ h1 .highlight {
 }
   
 @media only screen and (max-width: 1020px) {
-  .Playlists {
-    width: 90%;
-    margin-bottom: 2rem;
-  }
-
   .Navigation {
     display: none;
   }

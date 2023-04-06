@@ -8,6 +8,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import PlaylistMod from '../PlaylistMod/PlaylistMod';
 import NavOpen from '../NavOpen/NavOpen';
 
+import Spotify from '../../util/Spotify';
+
 function App() {
   
   const [playlists, setPlaylists] = useState([{
@@ -22,30 +24,42 @@ function App() {
   const [tracklist, setTracklist] = useState([]);
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
+  const [isSelected, setIsSelected] = useState({});
 
-
-  function toggleOpen(x) {
+  function toggleOpen() {
     setOpen(!open);
   }
 
   function toggleClass() {
     setActive(!isActive)
-}
+  }
+
+  function selectPlaylist({ target }) {
+    setIsSelected(target.value);
+  }
+
+  async function login() {
+    Spotify.login();
+    const accessToken = await Spotify.getAccessToken();
+    await Spotify.getProfile(accessToken);
+  }
   
   return (
     <div>
       <div className="Container">
-        <Navigation playlists={playlists} /> 
+        <Navigation playlists={playlists} selectPlaylist={selectPlaylist}
+                login={login} /> 
         <NavMobile toggleOpen={toggleOpen} open={open}
                 toggleClass={toggleClass} isActive={isActive}>
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
-                toggleClass={toggleClass} isActive={isActive}/>
+                toggleClass={toggleClass} isActive={isActive}
+                selectPlaylist={selectPlaylist} login={login} />
         </NavMobile>  
         <div className="App">
           <SearchBar/>
           <div className="App-playlist">
             <TrackList tracklist={tracklist} />
-            <PlaylistMod playlists={playlists} />
+            <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>
       </div>

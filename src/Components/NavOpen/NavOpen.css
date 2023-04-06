@@ -1,5 +1,8 @@
 @media only screen and (max-width: 1020px) {
     .NavOpen {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         position: fixed;
         top: 3.2rem;
         right: 0.5rem;
@@ -9,16 +12,10 @@
         border-radius: 4px;
     }
 
-    .Playlist-container {
-        position: absolute;
-        left: 8%;
-        top: 10%;
-        width: 100%;
-        height: 100%;
-    }
-
     .Button-close {
         display: none;
+        position: absolute;
+        right: 2.2rem;
         cursor: pointer;
     }
 
@@ -29,6 +26,28 @@
         position: absolute;
         transform: rotate(-45deg);
         left: 2px;
+    }
+
+    .Playlist-container {
+        margin: 0 1rem 0 1rem;
+        padding: 1.5rem;
+    }
+
+    .NavOpen-login {
+        margin: 0 1rem 0 1rem;
+        padding: 1.5rem;
+        border-bottom: solid 1px gray;
+    }
+
+    .NavOpen-login h3 {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .NavOpen-login h3:hover {
+        color: #6c41ec;
     }
 
     .Button-close:after {
@@ -53,14 +72,12 @@
         background-color: rgba(1, 12, 63);
     }
 
-    .Playlist-container {
-        top: 15%;
+    .NavOpen-login {
+        margin-top: 6rem;
     }
 
     .Button-close {
         display: block;
-        position: absolute;
-        right: 2.2rem;
         background-color: transparent;
         padding-top: 0.5rem;
     }

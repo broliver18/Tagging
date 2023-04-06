@@ -10,7 +10,7 @@ function Playlist(props) {
 
     return (
         <div className="Playlist">
-            <div className="Playlist-information">
+            <div className={props.isAddition ? "Playlist-to-add" : "Playlist-information"}>
                 <h3>{props.playlist.name}</h3>
             </div>
             {renderAction()}

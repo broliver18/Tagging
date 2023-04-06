@@ -12,12 +12,16 @@ function NavOpen(props) {
             }}>
                 <div></div>
             </div>
+            <div className="NavOpen-login">
+                <h3 onClick={props.login}>Login</h3>
+            </div>
             <div className="Playlist-container">
                 {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
                             key={playlist.key}
-                            isAddition={false} />   
+                            isAddition={false}
+                            onClick={props.selectPlaylist} />   
                     })
                 }
             </div>
