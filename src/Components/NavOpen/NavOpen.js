@@ -19,7 +19,7 @@ function NavOpen(props) {
                 {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}
-                            key={playlist.key}
+                            id={playlist.id}
                             isAddition={false}
                             onSelect={props.onSelect} />   
                     })

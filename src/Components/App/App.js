@@ -40,7 +40,9 @@ function App() {
 
   async function login() {
     Spotify.login();
-    Spotify.getAccessToken();
+    const accessToken = Spotify.getAccessToken();
+    const playlists = await Spotify.getPlaylists(accessToken);
+    setPlaylists([playlists])
   }
 
   

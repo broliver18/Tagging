@@ -50,7 +50,7 @@ const Spotify = {
         })
     },
     
-    getAccessToken() {
+    getAccessToken(accessToken) {
       const urlParams = new URLSearchParams(window.location.search);
       let code = urlParams.get('code');
 
