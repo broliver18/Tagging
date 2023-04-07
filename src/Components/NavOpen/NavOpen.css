@@ -31,11 +31,13 @@
     .Playlist-container {
         margin: 0 1rem 0 1rem;
         padding: 1.5rem;
+        padding-left: 0.8rem;
     }
 
     .NavOpen-login {
         margin: 0 1rem 0 1rem;
         padding: 1.5rem;
+        padding-left: 0.8rem;
         border-bottom: solid 1px gray;
     }
 
