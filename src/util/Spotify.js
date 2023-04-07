@@ -1,8 +1,6 @@
 const clientId = 'e6f7e1974bff404e890c8fdb91c6e93b';
 const redirectUri = 'http://localhost:3003/'
 
-let accessToken;
-
 function generateRandomString(length) {
     let text = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -53,8 +51,6 @@ const Spotify = {
     },
     
     getAccessToken() {
-      if (accessToken) return accessToken;
-
       const urlParams = new URLSearchParams(window.location.search);
       let code = urlParams.get('code');
 
@@ -86,14 +82,13 @@ const Spotify = {
         })
         .catch(error => {
           console.error('Error:', error);
-
-          accessToken = localStorage.getItem('access_token');
-        });   
+        });    
     },
 
    async getPlaylists() {
-    const accessToken = await this.getAccessToken();
-    const headers = {Authorization: 'Bearer' + accessToken};
+    let accessToken = localStorage.getItem('access_token');
+
+    const headers = {Authorization: 'Bearer ' + accessToken};
 
     const response = await fetch('https://api.spotify.com/v1/me/playlists?limit=20&offset=0', {headers: headers});
     const data = await response.json();
