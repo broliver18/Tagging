@@ -24,7 +24,7 @@ function App() {
   const [tracklist, setTracklist] = useState([]);
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [isSelected, setIsSelected] = useState({});
+  const [isSelected, setIsSelected] = useState();
 
   function toggleOpen() {
     setOpen(!open);
@@ -34,8 +34,8 @@ function App() {
     setActive(!isActive)
   }
 
-  function selectPlaylist({ target }) {
-    setIsSelected(target.value);
+  function selectPlaylist(playlist) {
+    setIsSelected(playlist)
   }
 
   async function login() {
@@ -47,13 +47,13 @@ function App() {
   return (
     <div>
       <div className="Container">
-        <Navigation playlists={playlists} selectPlaylist={selectPlaylist}
-                login={login} /> 
+        <Navigation playlists={playlists} onSelect={selectPlaylist}
+                onLogin={login} /> 
         <NavMobile toggleOpen={toggleOpen} open={open}
                 toggleClass={toggleClass} isActive={isActive}>
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
                 toggleClass={toggleClass} isActive={isActive}
-                selectPlaylist={selectPlaylist} login={login} />
+                onSelect={selectPlaylist} onLogin={login} />
         </NavMobile>  
         <div className="App">
           <SearchBar/>

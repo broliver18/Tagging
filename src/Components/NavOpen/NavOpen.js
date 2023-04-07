@@ -13,7 +13,7 @@ function NavOpen(props) {
                 <div></div>
             </div>
             <div className="NavOpen-login">
-                <h3 onClick={props.login}>Login</h3>
+                <h3 onClick={props.onLogin}>Login</h3>
             </div>
             <div className="Playlist-container">
                 {
@@ -21,7 +21,7 @@ function NavOpen(props) {
                     return <Playlist playlist={playlist}
                             key={playlist.key}
                             isAddition={false}
-                            onClick={props.selectPlaylist} />   
+                            onSelect={props.onSelect} />   
                     })
                 }
             </div>

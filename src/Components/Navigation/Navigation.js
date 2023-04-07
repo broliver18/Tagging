@@ -8,15 +8,15 @@ function Navigation(props) {
         <div className="Navigation">
             <h1>Ta<span className="highlight">ggg</span>ing</h1>
             <div className="Navigation-login">
-                <h3 onClick={props.login}>Login</h3>
+                <h3 onClick={props.onLogin}>Login</h3>
             </div>
             <div className="Playlists">
             {
                 props.playlists.map((playlist) => {
-                    return <Playlist playlist={playlist}
+                    return <Playlist playlist={playlist}              
                             key={playlist.key}
                             isAddition={false} 
-                            onClick={props.selectPlaylist} />
+                            onSelect={props.onSelect} />
                 })
             }
             </div>
