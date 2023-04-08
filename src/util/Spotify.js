@@ -82,7 +82,8 @@ const Spotify = {
         })
         .catch(error => {
           console.error('Error:', error);
-        });    
+        });  
+        console.log(codeVerifier);
     },
 
    async getPlaylists() {

@@ -38,11 +38,14 @@ function App() {
     setIsSelected(playlist)
   }
 
-  async function login() {
+  function login() {
     Spotify.login();
+  }
+
+  async function loadPlaylists() {
     const accessToken = Spotify.getAccessToken();
     const playlists = await Spotify.getPlaylists(accessToken);
-    setPlaylists([playlists])
+    return playlists;
   }
 
   
@@ -50,7 +53,7 @@ function App() {
     <div>
       <div className="Container">
         <Navigation playlists={playlists} onSelect={selectPlaylist}
-                onLogin={login} /> 
+                onLogin={login} loadPlaylists={loadPlaylists}/> 
         <NavMobile toggleOpen={toggleOpen} open={open}
                 toggleClass={toggleClass} isActive={isActive}>
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
