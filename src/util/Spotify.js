@@ -34,8 +34,6 @@ const Spotify = {
           let state = generateRandomString(16);
           let scope = 'user-read-private user-read-email';
 
-          localStorage.setItem('code-verifier', codeVerifier);
-
           let args = new URLSearchParams({
             response_type: 'code',
             client_id: clientId,
@@ -50,7 +48,7 @@ const Spotify = {
         })
     },
     
-    getAccessToken(accessToken) {
+    getAccessToken() {
       const urlParams = new URLSearchParams(window.location.search);
       let code = urlParams.get('code');
 
@@ -82,13 +80,11 @@ const Spotify = {
         })
         .catch(error => {
           console.error('Error:', error);
-        });  
-        console.log(codeVerifier);
+        });      
     },
 
    async getPlaylists() {
     let accessToken = localStorage.getItem('access_token');
-
     const headers = {Authorization: 'Bearer ' + accessToken};
 
     const response = await fetch('https://api.spotify.com/v1/me/playlists?limit=20&offset=0', {headers: headers});
