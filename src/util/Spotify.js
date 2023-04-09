@@ -34,6 +34,8 @@ const Spotify = {
           let state = generateRandomString(16);
           let scope = 'user-read-private user-read-email';
 
+          localStorage.setItem('code-verifier', codeVerifier);
+
           let args = new URLSearchParams({
             response_type: 'code',
             client_id: clientId,
@@ -92,6 +94,13 @@ const Spotify = {
     const playlists = data.items;
 
     return playlists;
+   },
+
+   getCode() {
+      let codeVerifier = generateRandomString(128);
+      let codeChallenge = generateCodeChallenge(codeVerifier);
+      console.log(codeChallenge);
+      console.log(codeVerifier);  
    }
 }
 

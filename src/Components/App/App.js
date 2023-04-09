@@ -43,9 +43,7 @@ function App() {
   }
 
   async function loadPlaylists() {
-    const accessToken = Spotify.getAccessToken();
-    const playlists = await Spotify.getPlaylists(accessToken);
-    return playlists;
+    Spotify.getCode();
   }
 
   
