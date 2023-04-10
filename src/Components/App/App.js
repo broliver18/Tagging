@@ -26,16 +26,18 @@ function App() {
     setActive(!isActive);
   }
 
-  function selectPlaylist(playlist) {
+  async function selectPlaylist(playlist) {
     setIsSelected(playlist);
+    const endpoint = playlist.tracks.href;
+    const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
+    setTracklist(playlistTracks);
   }
 
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
     setPlaylists(playlists);
   }
-
-  
+ 
   return (
     <div>
       <div className="Container">
