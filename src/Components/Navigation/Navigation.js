@@ -9,13 +9,12 @@ function Navigation(props) {
             <h1>Ta<span className="highlight">ggg</span>ing</h1>
             <div className="Navigation-login">
                 <h3 onClick={props.onLogin}>Login</h3>
-                <h3 onClick={props.loadPlaylists}>Get Playlists</h3>
             </div>
             <div className="Playlists">
             {
                 props.playlists.map((playlist) => {
                     return <Playlist playlist={playlist}              
-                            id={playlist.id}
+                            key={playlist.id}
                             isAddition={false} 
                             onSelect={props.onSelect} />
                 })

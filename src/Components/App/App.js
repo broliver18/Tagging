@@ -12,15 +12,7 @@ import Spotify from '../../util/Spotify';
 
 function App() {
   
-  const [playlists, setPlaylists] = useState([{
-    id: 0,
-    name: 'Chill'
-  },
-  {
-    id: 1,
-    name: 'Summer'
-  }]);
-
+  const [playlists, setPlaylists] = useState([]);
   const [tracklist, setTracklist] = useState([]);
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
@@ -38,12 +30,9 @@ function App() {
     setIsSelected(playlist)
   }
 
-  function login() {
-    Spotify.login();
-  }
-
   async function loadPlaylists() {
-    Spotify.getCode();
+    const playlists = await Spotify.getPlaylists();
+    setPlaylists([playlists]);
   }
 
   
@@ -51,12 +40,12 @@ function App() {
     <div>
       <div className="Container">
         <Navigation playlists={playlists} onSelect={selectPlaylist}
-                onLogin={login} loadPlaylists={loadPlaylists}/> 
+                onLogin={loadPlaylists} /> 
         <NavMobile toggleOpen={toggleOpen} open={open}
                 toggleClass={toggleClass} isActive={isActive}>
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
                 toggleClass={toggleClass} isActive={isActive}
-                onSelect={selectPlaylist} onLogin={login} />
+                onSelect={selectPlaylist} onLogin={loadPlaylists} />
         </NavMobile>  
         <div className="App">
           <SearchBar/>
