@@ -1,11 +1,12 @@
 .Playlist {
     display: flex;
     align-items: center;
+    height: 4rem;
 }
 
 .Playlist-action {
     cursor: pointer;
-    padding: .5rem;
+    padding: 0.5rem;
     font-size: 1.05rem;
     transition: color .25s;
     border: 0px;

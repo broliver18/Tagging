@@ -1,6 +1,7 @@
 .NewPlaylist {
     display: flex;
     align-items: center;
+    height: 4rem;
 }
   
 .NewPlaylist-information {

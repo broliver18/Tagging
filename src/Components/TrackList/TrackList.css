@@ -6,6 +6,11 @@
     background-color: rgba(1, 12, 63, 0.7);
     box-shadow: 0 4px 2px 2px #000000;
 }
+
+.Tracks {
+    height: 87%;
+    margin-bottom: 1.5rem;
+}
   
 ::-webkit-scrollbar {
     width: 0px;
@@ -15,8 +20,6 @@
 .buttons {
     display: flex;
     justify-content: space-around;
-    position: relative;
-    top: 47.5rem;    
 }
 
 .select-button, .delete-button {

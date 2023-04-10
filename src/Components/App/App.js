@@ -23,11 +23,11 @@ function App() {
   }
 
   function toggleClass() {
-    setActive(!isActive)
+    setActive(!isActive);
   }
 
   function selectPlaylist(playlist) {
-    setIsSelected(playlist)
+    setIsSelected(playlist);
   }
 
   async function loadPlaylists() {
