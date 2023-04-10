@@ -32,7 +32,7 @@ function App() {
 
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
-    setPlaylists([playlists]);
+    setPlaylists(playlists);
   }
 
   

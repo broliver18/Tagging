@@ -28,7 +28,7 @@ const Spotify = {
     const accessToken = this.getAccessToken();
     const headers = {Authorization: 'Bearer ' + accessToken};
 
-    const response = await fetch('https://api.spotify.com/v1/me/playlists?limit=20&offset=0', {headers: headers});
+    const response = await fetch('https://api.spotify.com/v1/me/playlists?limit=10&offset=0', {headers: headers});
     const jsonResponse = await response.json();
     if (!jsonResponse) return [];
     const playlists = jsonResponse.items.map(playlist => ({
