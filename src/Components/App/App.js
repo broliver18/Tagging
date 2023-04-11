@@ -32,7 +32,10 @@ function App() {
   };
 
   function dynamicSearch() {
-    return tracklist.filter(track => track.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    return tracklist.filter(track =>
+      track.name.toLowerCase().includes(searchTerm.toLowerCase())
+      || track.artist.toLowerCase().includes(searchTerm.toLowerCase())
+      || track.album.toLowerCase().includes(searchTerm.toLowerCase())); 
   }
 
   async function selectPlaylist(playlist) {
@@ -61,7 +64,7 @@ function App() {
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
-            <TrackList tracklist={tracklist} searchResults={dynamicSearch} />
+            <TrackList tracklist={dynamicSearch()} />
             <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>
