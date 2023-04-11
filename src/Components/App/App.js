@@ -26,6 +26,13 @@ function App() {
     setActive(!isActive);
   }
 
+  function search(term) {
+    for (const track of tracklist) {
+      const { name, artist, album } = track;
+   
+    }
+  }
+
   async function selectPlaylist(playlist) {
     setIsSelected(playlist);
     const endpoint = playlist.tracks.href;

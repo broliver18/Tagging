@@ -11,12 +11,14 @@ function PlaylistMod(props) {
     return (
         <div className="PlaylistMod">
             <h2>Add To Playlist</h2>
-            <NewPlaylist/>
-            {remainingPlaylists.map((playlist) => {
-                return <Playlist playlist={playlist}
-                        key={playlist.id}
-                        isAddition={true} />
-            })}
+            <div className="Mod-container">
+                <NewPlaylist/>
+                {remainingPlaylists.map((playlist) => {
+                    return <Playlist playlist={playlist}
+                            key={playlist.id}
+                            isAddition={true} />
+                })}
+            </div>
         </div>
     )
 }
