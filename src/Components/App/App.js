@@ -14,23 +14,25 @@ function App() {
   
   const [playlists, setPlaylists] = useState([]);
   const [tracklist, setTracklist] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
   const [isSelected, setIsSelected] = useState();
 
   function toggleOpen() {
     setOpen(!open);
-  }
+  };
 
   function toggleClass() {
     setActive(!isActive);
-  }
+  };
 
-  function search(term) {
-    for (const track of tracklist) {
-      const { name, artist, album } = track;
-   
-    }
+  function editSearchTerm(e) {
+    setSearchTerm(e.target.value);
+  };
+
+  function dynamicSearch() {
+    return tracklist.filter(track => track.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
   async function selectPlaylist(playlist) {
@@ -38,12 +40,12 @@ function App() {
     const endpoint = playlist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTracklist(playlistTracks);
-  }
+  };
 
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
     setPlaylists(playlists);
-  }
+  };
  
   return (
     <div>
@@ -57,9 +59,9 @@ function App() {
                 onSelect={selectPlaylist} onLogin={loadPlaylists} />
         </NavMobile>  
         <div className="App">
-          <SearchBar/>
+          <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
-            <TrackList tracklist={tracklist} />
+            <TrackList tracklist={tracklist} searchResults={dynamicSearch} />
             <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>
