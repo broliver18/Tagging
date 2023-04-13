@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Tags.css';
 
 function Icon() {
@@ -21,7 +21,17 @@ function Tags(props) {
     const [showMenu, setShowMenu] = useState(false);
     const [selectedValue, setSelectedValue] = useState(props.isMulti ? [] : null);
 
+    useEffect(() => {
+        const handler = () => setShowMenu(false);
+
+        window.addEventListener("click", handler);
+        return () => {
+            window.removeEventListener("click", handler);
+        };
+    });
+
     function toggleMenu(e) {
+        e.stopPropagation();
         setShowMenu(!showMenu);
     };
 
@@ -35,7 +45,7 @@ function Tags(props) {
                             <div className="Dropdown-tag-item" key={option.value}>
                                 {option.label}
                                 <span className="Dropdown-tag-close"
-                                    onClick={() => {onTagRemove(option)}}><CloseIcon/></span>
+                                    onClick={(e) => {onTagRemove(e, option)}}><CloseIcon/></span>
                             </div>
                         )        
                     })}
@@ -48,7 +58,8 @@ function Tags(props) {
         return selectedValue.filter(o => o.value !== option.value);
     };
 
-    function onTagRemove(option) {
+    function onTagRemove(e, option) {
+        e.stopPropagation();
         setSelectedValue(removeOption(option));
     };
 
