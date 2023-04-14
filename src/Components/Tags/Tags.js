@@ -11,15 +11,21 @@ function Icon() {
 
 function CloseIcon() {
     return (
-        <svg height="20" width="20" viewBox="0 0 20 20">
-            <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
-        </svg>
+        <div className="Close-button">
+            <svg height="20" width="20" viewBox="0 0 20 20">
+                <path d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"></path>
+            </svg>
+        </div>
     );
 };
 
 function Tags(props) {
+    const [input, setInput] = useState('');
     const [showMenu, setShowMenu] = useState(false);
     const [selectedValue, setSelectedValue] = useState(props.isMulti ? [] : null);
+
+    const handleChange = e => setInput(e.target.value);
+    const stopPropagation = e => e.stopPropagation();
 
     useEffect(() => {
         const handler = () => setShowMenu(false);
@@ -30,13 +36,24 @@ function Tags(props) {
         };
     });
 
+    function createTags(e) {
+        const { key } = e;
+        const trimmedInput = input.trim();
+
+        if ((key === ',' || key === 'Enter') && trimmedInput.length && !selectedValue.includes(trimmedInput)) {
+            e.preventDefault();
+            const tag = { value: trimmedInput, label: trimmedInput }
+            setSelectedValue(prevState => [...prevState, tag]);
+            setInput('');
+        }
+    }
+
     function toggleMenu(e) {
         e.stopPropagation();
         setShowMenu(!showMenu);
     };
 
     function getDisplay() {
-        if (!selectedValue || selectedValue.length === 0) return props.placeHolder;
         if (props.isMulti) {
             return (
                 <div className="Dropdown-tags">
@@ -49,6 +66,12 @@ function Tags(props) {
                             </div>
                         )        
                     })}
+                    <input
+                        value={input}
+                        placeholder="Enter a tag"
+                        onKeyDown={createTags}
+                        onChange={handleChange} 
+                        onClick={stopPropagation}/>
                 </div>
             )     
         };
@@ -63,7 +86,8 @@ function Tags(props) {
         setSelectedValue(removeOption(option));
     };
 
-    function onItemClick(option) {
+    function onItemClick(e, option) {
+        e.stopPropagation();
         let newValue;
         if (props.isMulti) {
             if (selectedValue.findIndex(o => o.value === option.value) >= 0) {
@@ -80,7 +104,7 @@ function Tags(props) {
     return (
         <div className="Dropdown-container">
             <div className="Dropdown-input" onClick={toggleMenu}>
-                <div className="Dropdown-selected-value">{getDisplay()}</div>
+                <div className="Dropdown-placeholder">{props.placeHolder}</div>
                 <div className="Dropdown-tools">
                     <div className="Dropdown-tool">
                         <Icon/>
@@ -89,9 +113,10 @@ function Tags(props) {
             </div>
             {showMenu && (
             <div className="Dropdown-menu">
+                <div className="Dropdown-selected-value">{getDisplay()}</div>
                 {props.options.map(option => (
                     <div 
-                        onClick={() => onItemClick(option)}
+                        onClick={(e) => onItemClick(e, option)}
                         className="Dropdown-item" 
                         key={option.value}>
                             {option.label}
