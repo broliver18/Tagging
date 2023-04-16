@@ -22,7 +22,7 @@ function CloseIcon() {
 function Tags(props) {
     const [input, setInput] = useState('');
     const [showMenu, setShowMenu] = useState(false);
-    const [selectedValue, setSelectedValue] = useState(props.isMulti ? [] : null);
+    const [tags, setTags] = useState(props.isMulti ? [] : null);
 
     const handleChange = e => setInput(e.target.value);
     const stopPropagation = e => e.stopPropagation();
@@ -37,14 +37,24 @@ function Tags(props) {
     });
 
     function createTags(e) {
+
         const { key } = e;
         const trimmedInput = input.trim();
+        const tag = { value: trimmedInput, label: trimmedInput }
 
-        if ((key === ',' || key === 'Enter') && trimmedInput.length && !selectedValue.includes(trimmedInput)) {
+        if ((key === ',' || key === 'Enter') && trimmedInput.length && !tags.some(option => option.value.toLowerCase() === trimmedInput.toLowerCase())) {
             e.preventDefault();
-            const tag = { value: trimmedInput, label: trimmedInput }
-            setSelectedValue(prevState => [...prevState, tag]);
+            setTags(prevState => [...prevState, tag]);
             setInput('');
+        }
+
+        if (key === 'Backspace' && !input.length && tags.length) {
+            e.preventDefault();
+            const tagsCopy = [...tags];
+            const poppedTagObject = tagsCopy.pop();
+
+            setTags(tagsCopy);
+            setInput(poppedTagObject.label);
         }
     }
 
@@ -57,7 +67,7 @@ function Tags(props) {
         if (props.isMulti) {
             return (
                 <div className="Dropdown-tags">
-                    {selectedValue.map(option => {
+                    {tags.map(option => {
                         return (
                             <div className="Dropdown-tag-item" key={option.value}>
                                 {option.label}
@@ -71,34 +81,34 @@ function Tags(props) {
                         placeholder="Enter a tag"
                         onKeyDown={createTags}
                         onChange={handleChange} 
-                        onClick={stopPropagation}/>
+                        onClick={stopPropagation} />
                 </div>
             )     
         };
     };
 
     function removeOption(option) {
-        return selectedValue.filter(o => o.value !== option.value);
+        return tags.filter(o => o.value !== option.value);
     };
 
     function onTagRemove(e, option) {
         e.stopPropagation();
-        setSelectedValue(removeOption(option));
+        setTags(removeOption(option));
     };
 
     function onItemClick(e, option) {
         e.stopPropagation();
         let newValue;
         if (props.isMulti) {
-            if (selectedValue.findIndex(o => o.value === option.value) >= 0) {
+            if (tags.findIndex(o => o.value === option.value) >= 0) {
                 newValue = removeOption(option);
             } else {
-                newValue = [...selectedValue, option];
+                newValue = [...tags, option];
             } 
         } else {
             newValue = option;
         }
-        setSelectedValue(newValue);
+        setTags(newValue);
     };
 
     return (

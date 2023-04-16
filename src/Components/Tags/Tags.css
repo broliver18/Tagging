@@ -1,5 +1,6 @@
 .Dropdown-container {
   opacity: 0;
+  margin-left: 2px;
   text-align: left;
   position: relative;
   border-radius: 4px;
