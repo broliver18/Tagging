@@ -43,7 +43,7 @@ svg path {
   transform: translateY(2px);
   transform: translateX(-230px);
   width: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid lightgray;
   border-radius: 5px;
   background-color: #fff;
 }

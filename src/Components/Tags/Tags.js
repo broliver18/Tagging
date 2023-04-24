@@ -45,6 +45,7 @@ function Tags(props) {
         if ((key === ',' || key === 'Enter') && trimmedInput.length && !tags.some(option => option.value.toLowerCase() === trimmedInput.toLowerCase())) {
             e.preventDefault();
             setTags(prevState => [...prevState, tag]);
+            props.onCreate(tag);
             setInput('');
         }
 
@@ -123,8 +124,8 @@ function Tags(props) {
             </div>
             {showMenu && (
             <div className="Dropdown-menu">
-                <div className="Dropdown-selected-value">{getDisplay()}</div>
-                {props.options.map(option => (
+                <div className="Dropdown-selected-value">{getDisplay()}</div> 
+                {props.tagOptions && props.tagOptions.map(option => (
                     <div 
                         onClick={(e) => onItemClick(e, option)}
                         className="Dropdown-item" 

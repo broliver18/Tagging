@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Track.css';
 
 import Tags from '../Tags/Tags';
@@ -12,11 +12,6 @@ function Track(props) {
         }
     }
 
-    const options = [
-        { value: "green", label: "Green" },
-        { value: "blue", label: "Blue" }
-    ]
-
     return (
         <div className="Track">
             <div className="Track-information">
@@ -24,8 +19,8 @@ function Track(props) {
                 <p>{props.track.artist} | {props.track.album}</p>
             </div>
             <div className="Tags-container">
-                <Tags placeHolder="Tags" options={options}
-                    isMulti={true}/>
+                <Tags placeHolder="Tags" tagOptions={props.tagOptions} 
+                    onCreate={props.onCreate} isMulti={true} />
             </div>
             {renderAction()}
         </div>
