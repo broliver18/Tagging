@@ -31,6 +31,11 @@ function App() {
     setSearchTerm(e.target.value);
   };
 
+  function closeNav() {
+    setOpen(false);
+    setActive(false);
+  }
+
   function dynamicSearch() {
     return tracklist.filter(track =>
       track.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -56,7 +61,8 @@ function App() {
         <Navigation playlists={playlists} onSelect={selectPlaylist}
                 onLogin={loadPlaylists} /> 
         <NavMobile toggleOpen={toggleOpen} open={open}
-                toggleClass={toggleClass} isActive={isActive}>
+                toggleClass={toggleClass} isActive={isActive}
+                closeNav={closeNav} >
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
                 toggleClass={toggleClass} isActive={isActive}
                 onSelect={selectPlaylist} onLogin={loadPlaylists} />
