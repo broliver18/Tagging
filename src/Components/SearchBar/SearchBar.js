@@ -8,7 +8,6 @@ function SearchBar(props) {
             value={props.searchTerm}
             onChange={props.onSearch}
             placeholder="Enter a Song, Artist, Album or Tag" />
-            <button className="SearchButton">SEARCH</button>
         </div>
     )
 }
