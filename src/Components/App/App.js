@@ -34,7 +34,7 @@ function App() {
   function closeNav() {
     setOpen(false);
     setActive(false);
-  }
+  };
 
   function dynamicSearch() {
     return tracklist.filter(track =>
@@ -43,16 +43,16 @@ function App() {
       || track.album.toLowerCase().includes(searchTerm.toLowerCase())); 
   }
 
+  async function loadPlaylists() {
+    const playlists = await Spotify.getPlaylists();
+    setPlaylists(playlists);
+  };
+
   async function selectPlaylist(playlist) {
     setIsSelected(playlist);
     const endpoint = playlist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTracklist(playlistTracks);
-  };
-
-  async function loadPlaylists() {
-    const playlists = await Spotify.getPlaylists();
-    setPlaylists(playlists);
   };
  
   return (
