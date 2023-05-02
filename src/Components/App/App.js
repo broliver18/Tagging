@@ -41,7 +41,11 @@ function App() {
       track.name.toLowerCase().includes(searchTerm.toLowerCase())
       || track.artist.toLowerCase().includes(searchTerm.toLowerCase())
       || track.album.toLowerCase().includes(searchTerm.toLowerCase())); 
-  }
+  };
+
+  function addTag(track, tags) {
+    setTracklist(track.tags = tags)
+  };
 
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
@@ -70,7 +74,7 @@ function App() {
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
-            <TrackList tracklist={dynamicSearch()} />
+            <TrackList tracklist={dynamicSearch()} addTag={addTag} />
             <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>

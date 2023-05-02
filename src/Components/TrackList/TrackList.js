@@ -29,6 +29,7 @@ function TrackList(props) {
                             tagOptions={tagOptions}
                             onCreate={createTagOptions}
                             onOptionRemove={onOptionRemove} 
+                            addTag={props.addTag}
                             key={track.id} 
                             isRemoval={false} />
                 })}
