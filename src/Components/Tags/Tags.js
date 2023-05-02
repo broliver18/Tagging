@@ -37,7 +37,6 @@ function Tags(props) {
     const inputRef = useRef();
 
     const handleChange = e => setInput(e.target.value);
-    const stopPropagation = e => e.stopPropagation();
 
     useEffect(() => {
         const handler = () => setShowMenu(false);
@@ -98,7 +97,7 @@ function Tags(props) {
                         placeholder="Enter a tag"
                         onKeyDown={createTags}
                         onChange={handleChange} 
-                        onClick={stopPropagation}
+                        onClick={(e) => e.stopPropagation()}
                         ref={inputRef} />
                 </div>
             )     
