@@ -60,6 +60,10 @@ svg path {
   color: rgba(1, 12, 63);
 }
 
+.Dropdown-extra-space {
+  height: 15px;
+}
+
 .Dropdown-item:hover {
   background-color: #9fc3f870;
 }
@@ -68,7 +72,6 @@ svg path {
   flex-wrap: wrap;
   display: flex;
   width: 100%;
-  border-bottom: 1px gray solid;
   background-color: lightgray;
 }
 

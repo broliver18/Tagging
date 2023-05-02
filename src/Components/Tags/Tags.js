@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Tags.css';
 
 function Icon() {
@@ -34,6 +34,8 @@ function Tags(props) {
     const [showMenu, setShowMenu] = useState(false);
     const [tags, setTags] = useState(props.isMulti ? [] : null);
 
+    const inputRef = useRef();
+
     const handleChange = e => setInput(e.target.value);
     const stopPropagation = e => e.stopPropagation();
 
@@ -45,6 +47,10 @@ function Tags(props) {
             window.removeEventListener("click", handler);
         };
     });
+
+    useEffect(() => {
+        if (showMenu) inputRef.current.focus();
+    }, [showMenu])
 
     function createTags(e) {
         const { key } = e;
@@ -92,7 +98,8 @@ function Tags(props) {
                         placeholder="Enter a tag"
                         onKeyDown={createTags}
                         onChange={handleChange} 
-                        onClick={stopPropagation} />
+                        onClick={stopPropagation}
+                        ref={inputRef} />
                 </div>
             )     
         };
@@ -134,7 +141,7 @@ function Tags(props) {
             </div>
             {showMenu && (
             <div className="Dropdown-menu">
-                <div className="Dropdown-selected-value">{getDisplay()}</div> 
+                <div className="Dropdown-selected-value">{getDisplay()}</div>
                 {props.tagOptions.map(option => (
                     <div 
                         className="Dropdown-item" 
@@ -142,13 +149,13 @@ function Tags(props) {
                         key={option.value}>
                         {option.label}
                         <span className="Dropdown-option-close"
-                            onClick={(e) => {
-                                props.onOptionRemove(e, option);
-                            }}
+                            onClick={(e) => 
+                                props.onOptionRemove(e, option)}
                             ><CloseOptionIcon/>
                         </span>
                     </div> 
                 ))}
+                {props.tagOptions.length > 0 && (<div className="Dropdown-extra-space"></div>)}
             </div>
             )}
         </div>
