@@ -7,6 +7,7 @@ function TrackList(props) {
     const [tagOptions, setTagOptions] = useState([]);
 
     function createTagOptions(tag) {
+        if (!tagOptions.some(option => option.value.toLowerCase() === tag.value.toLowerCase()))
         setTagOptions(prevState => [...prevState, tag]);
     };
 

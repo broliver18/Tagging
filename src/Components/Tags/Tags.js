@@ -49,7 +49,7 @@ function Tags(props) {
     });
 
     useEffect(() => {
-        if (showMenu) inputRef.current.focus();
+        if (showMenu && inputRef.current) inputRef.current.focus();
     }, [showMenu])
 
     function createTags(e) {
@@ -140,22 +140,25 @@ function Tags(props) {
                 </div>
             </div>
             {showMenu && (
-            <div className="Dropdown-menu">
-                <div className="Dropdown-selected-value">{getDisplay()}</div>
-                {props.tagOptions.map(option => (
-                    <div 
-                        className="Dropdown-item" 
-                        onClick={(e) => onItemClick(e, option)}
-                        key={option.value}>
-                        {option.label}
-                        <span className="Dropdown-option-close"
-                            onClick={(e) => 
-                                props.onOptionRemove(e, option)}
-                            ><CloseOptionIcon/>
-                        </span>
-                    </div> 
-                ))}
-                {props.tagOptions.length > 0 && (<div className="Dropdown-extra-space"></div>)}
+            <div className="Dropdown-menu-container">    
+                <div className="Dropdown-menu">
+                    <div className="Dropdown-selected-value">{getDisplay()}</div>
+                    {props.tagOptions.map(option => (
+                        <div 
+                            className="Dropdown-item" 
+                            onClick={(e) => onItemClick(e, option)}
+                            key={option.value}>
+                            {option.label}
+                            <span className="Dropdown-option-close"
+                                onClick={(e) => 
+                                    props.onOptionRemove(e, option)}
+                                ><CloseOptionIcon/>
+                            </span>
+                        </div> 
+                    ))}
+                
+                </div>
+                <div className="Dropdown-extra-space"></div>
             </div>
             )}
         </div>

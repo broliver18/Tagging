@@ -22,6 +22,7 @@
 
 .Dropdown-selected-value {
   display: flex;
+  
 }
 
 svg path {
@@ -41,11 +42,14 @@ svg path {
   fill: rgba(1, 12, 63);
 }
 
-.Dropdown-menu {
+.Dropdown-menu-container {
   position: absolute;
   transform: translateY(2px);
   transform: translateX(-230px);
   width: 300px;
+}
+
+.Dropdown-menu {
   border: 1px solid lightgray;
   border-radius: 5px;
   background-color: #fff;
@@ -61,7 +65,7 @@ svg path {
 }
 
 .Dropdown-extra-space {
-  height: 15px;
+  height: 30px;
 }
 
 .Dropdown-item:hover {
@@ -83,6 +87,10 @@ svg path {
   background-color: lightgray;
 }
 
+.Dropdown-tags input:focus {
+  outline-width: 0;
+}
+
 .Dropdown-tag-item {
   display: flex;
   align-items: center;
@@ -101,7 +109,7 @@ svg path {
 }
 
 @media only screen and (max-width: 450px) {
-  .Dropdown-menu {
+  .Dropdown-menu-container {
     transform: translateX(-80px);
     width: 150px;
   }
