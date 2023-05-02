@@ -88,7 +88,7 @@ svg path {
 }
 
 .Dropdown-tags input:focus {
-  outline-width: 0;
+  outline: none;
 }
 
 .Dropdown-tag-item {
