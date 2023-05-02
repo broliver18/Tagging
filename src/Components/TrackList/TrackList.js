@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import './TrackList.css';
 
 import Track from '../Track/Track';
@@ -8,7 +8,16 @@ function TrackList(props) {
 
     function createTagOptions(tag) {
         setTagOptions(prevState => [...prevState, tag]);
-    }
+    };
+
+    function removeOption(tag) {
+        return tagOptions.filter(o => o.value !== tag.value);
+    };
+
+    function onOptionRemove(e, tag) {
+        e.stopPropagation();
+        setTagOptions(removeOption(tag));
+    };
 
     return (
         <div className="TrackList">
@@ -17,9 +26,10 @@ function TrackList(props) {
                 {props.tracklist.map((track) => {
                     return <Track track={track}
                             tagOptions={tagOptions}
-                            onCreate={createTagOptions} 
+                            onCreate={createTagOptions}
+                            onOptionRemove={onOptionRemove} 
                             key={track.id} 
-                            isRemoval={false}  />
+                            isRemoval={false} />
                 })}
             </div>
             <div className="buttons">

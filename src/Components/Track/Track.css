@@ -6,7 +6,7 @@
 }
 
 .Track:hover .Dropdown-container {
-  opacity: 1;
+  display: block;
 }
   
 .Track-action {

@@ -1,5 +1,5 @@
 .Dropdown-container {
-  opacity: 0;
+  display: none;
   margin-left: 2px;
   text-align: left;
   position: relative;
@@ -14,7 +14,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  user-select: none;
 }
 
 .Dropdown-selected-value, .Dropdown-placeholder {
@@ -29,13 +28,17 @@ svg path {
   fill: rgba(1, 12, 63);
 }
 
-.Close-button {
+.Close-button-tag {
   display: flex;
   cursor: pointer;
 }
 
-.Close-button svg path {
+.Close-button-tag svg path {
   fill: #fff;
+}
+
+.Close-button-option svg path {
+  fill: rgba(1, 12, 63);
 }
 
 .Dropdown-menu {
@@ -49,6 +52,9 @@ svg path {
 }
 
 .Dropdown-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 5px;
   cursor: pointer;
   color: rgba(1, 12, 63);
