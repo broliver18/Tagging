@@ -69,6 +69,7 @@ function Tags(props) {
             const tagsCopy = [...tags];
             const poppedTagObject = tagsCopy.pop();
             setTags(tagsCopy);
+            props.removeTag(props.track, poppedTagObject);
             setInput(poppedTagObject.label);
         }
     };
@@ -120,8 +121,10 @@ function Tags(props) {
         if (props.isMulti) {
             if (tags.findIndex(o => o.value === option.value) >= 0) {
                 newValue = removeOption(option);
+                props.removeTag(props.track, option);
             } else {
                 newValue = [...tags, option];
+                props.addTag(props.track, option);
             } 
         } else {
             newValue = option;
