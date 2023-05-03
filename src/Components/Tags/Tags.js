@@ -60,6 +60,7 @@ function Tags(props) {
             e.preventDefault();
             setTags(prevState => [...prevState, tag]);
             props.onCreate(tag);
+            props.addTag(props.track, tag);
             setInput('');
         }
 

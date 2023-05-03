@@ -21,7 +21,7 @@ function Track(props) {
             <div className="Tags-container">
                 <Tags placeHolder="Tags" tagOptions={props.tagOptions} 
                     onCreate={props.onCreate} onOptionRemove={props.onOptionRemove}
-                    isMulti={true} />
+                    addTag={props.addTag} track={props.track} isMulti={true} />
             </div>
             {renderAction()}
         </div>

@@ -43,8 +43,13 @@ function App() {
       || track.album.toLowerCase().includes(searchTerm.toLowerCase())); 
   };
 
-  function addTag(track, tags) {
-    setTracklist(track.tags = tags)
+  function addTag(track, tag) {
+    const tracklistCopy = [...tracklist];
+    const trackCopy = tracklistCopy.find(o => o.id === track.id);
+    const index = tracklistCopy.findIndex(o => o.id === track.id);
+    trackCopy.tags.push(tag.label);
+    tracklistCopy[index] = trackCopy;
+    setTracklist(tracklistCopy);
   };
 
   async function loadPlaylists() {

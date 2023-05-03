@@ -48,7 +48,8 @@ const Spotify = {
         id: trackNum.track.id,
         name: trackNum.track.name,
         artist: trackNum.track.artists[0].name,
-        album: trackNum.track.album.name
+        album: trackNum.track.album.name,
+        tags: []
     }));
       return tracks;
    }
