@@ -68,7 +68,6 @@ function Tags(props) {
             e.preventDefault();
             const tagsCopy = [...tags];
             const poppedTagObject = tagsCopy.pop();
-
             setTags(tagsCopy);
             setInput(poppedTagObject.label);
         }
@@ -112,6 +111,7 @@ function Tags(props) {
     function onTagRemove(e, option) {
         e.stopPropagation();
         setTags(removeOption(option));
+        props.removeTag(props.track, option)
     };
 
     function onItemClick(e, option) {

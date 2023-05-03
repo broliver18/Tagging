@@ -52,6 +52,16 @@ function App() {
     setTracklist(tracklistCopy);
   };
 
+  function removeTag(track, tag) {
+    const tracklistCopy = [...tracklist];
+    const trackCopy = tracklistCopy.find(o => o.id === track.id);
+    const index = tracklistCopy.findIndex(o => o.id === track.id);
+    const filteredTags = trackCopy.tags.filter(o => o !== tag.value);
+    trackCopy.tags = filteredTags;
+    tracklistCopy[index] = trackCopy;
+    setTracklist(tracklistCopy);
+  };
+
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
     setPlaylists(playlists);
@@ -79,7 +89,7 @@ function App() {
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
-            <TrackList tracklist={dynamicSearch()} addTag={addTag} />
+            <TrackList tracklist={dynamicSearch()} addTag={addTag} removeTag={removeTag} />
             <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>
