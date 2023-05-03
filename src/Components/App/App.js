@@ -40,16 +40,19 @@ function App() {
     return tracklist.filter(track =>
       track.name.toLowerCase().includes(searchTerm.toLowerCase())
       || track.artist.toLowerCase().includes(searchTerm.toLowerCase())
-      || track.album.toLowerCase().includes(searchTerm.toLowerCase())); 
+      || track.album.toLowerCase().includes(searchTerm.toLowerCase())
+      || track.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))); 
   };
 
   function addTag(track, tag) {
     const tracklistCopy = [...tracklist];
     const trackCopy = tracklistCopy.find(o => o.id === track.id);
     const index = tracklistCopy.findIndex(o => o.id === track.id);
-    trackCopy.tags.push(tag.label);
-    tracklistCopy[index] = trackCopy;
-    setTracklist(tracklistCopy);
+    if (!trackCopy.tags.includes(tag)) {
+      trackCopy.tags.push(tag.label);
+      tracklistCopy[index] = trackCopy;
+      setTracklist(tracklistCopy);
+    } 
   };
 
   function removeTag(track, tag) {
