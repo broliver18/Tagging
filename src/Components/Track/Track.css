@@ -24,10 +24,15 @@
 
 .Track-action-remove {
   content: "\2713";
+  color: lightgreen
 }
   
-.Track-action-add:hover, .Track-action-remove:hover {
+.Track-action-add:hover {
   color: rgba(265, 265, 265, .5);
+}
+
+.Track-action-remove:hover {
+  color: green;
 }
   
 .Track-information {

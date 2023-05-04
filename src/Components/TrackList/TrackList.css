@@ -27,17 +27,17 @@
     width: 9rem;
     padding: .77rem 0;
     border-radius: 54px;
-    background-color: #fff;
+    background-color: #6c41ec;
     text-align: center;
-    font-size: .833rem;
+    font-size: .83rem;
     transition: background-color .25s;
     border: 0px;
-    color: #010c3f;
+    color: #fff;
     font-weight: 500;
 }
 
 .select-button:hover, .delete-button:hover {
-    color: #6c41ec
+    background-color: rgba(108, 65, 233, .7);
 }
   
 @media only screen and (max-width: 1020px) {
