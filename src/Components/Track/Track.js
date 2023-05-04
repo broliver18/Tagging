@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Track.css';
 
 import Tags from '../Tags/Tags';
 
+function CheckMarkIcon() {
+    return (
+        <svg width="24" height="24">
+            <path d="M24 4.685l-16.327 17.315-7.673-9.054.761-.648 6.95 8.203 15.561-16.501.728.685z"/>
+        </svg>
+    ); 
+};  
+
 function Track(props) {
+    const [isRemoval, setIsRemoval] = useState(false);
+
     function renderAction() {
-        if (props.isRemoval) {
-            return <button className="Track-action">-</button>
+        if (isRemoval) {
+            return <button className="Track-action-remove" onClick={removeTrack}>&#10003;</button>
         } else {
-            return <button className="Track-action">+</button>
+            return <button className="Track-action-add" onClick={selectTrack}>+</button>
         }
+    };
+
+    function selectTrack() {
+        props.selectTrack(props.track);
+        setIsRemoval(true);
+    }
+
+    function removeTrack() {
+        props.removeTrack(props.track);
+        setIsRemoval(false);
     }
 
     return (

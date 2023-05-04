@@ -1,6 +1,7 @@
 .Dropdown-container {
   display: none;
   margin-left: 2px;
+  margin-right: 10px;
   text-align: left;
   position: relative;
   border-radius: 4px;
@@ -22,7 +23,6 @@
 
 .Dropdown-selected-value {
   display: flex;
-  
 }
 
 svg path {

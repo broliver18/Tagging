@@ -9,18 +9,24 @@
   display: block;
 }
   
-.Track-action {
+.Track-action-add, .Track-action-remove {
   cursor: pointer;
+  box-sizing: border-box;
+  width: 30px;
   padding: .5rem;
   font-size: 1.05rem;
+  border: 0px;
   margin-left: 2px;
   transition: color .25s;
-  border: 0px;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
 }
+
+.Track-action-remove {
+  content: "\2713";
+}
   
-.Track-action:hover {
+.Track-action-add:hover, .Track-action-remove:hover {
   color: rgba(265, 265, 265, .5);
 }
   

@@ -24,15 +24,16 @@ function TrackList(props) {
         <div className="TrackList">
             <h2>Songs</h2>
             <div className="Tracks">
-                {props.tracklist.map((track) => {
+                {props.trackList.map((track) => {
                     return <Track track={track}
                             tagOptions={tagOptions}
                             onCreate={createTagOptions}
                             onOptionRemove={onOptionRemove} 
                             addTag={props.addTag}
                             removeTag={props.removeTag}
-                            key={track.id} 
-                            isRemoval={false} />
+                            selectTrack={props.selectTrack}
+                            removeTrack={props.removeTrack}
+                            key={track.id} />
                 })}
             </div>
             <div className="buttons">
