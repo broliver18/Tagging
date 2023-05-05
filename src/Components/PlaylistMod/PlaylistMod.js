@@ -12,7 +12,7 @@ function PlaylistMod(props) {
         <div className="PlaylistMod">
             <h2>Add To Playlist</h2>
             <div className="Mod-container">
-                <NewPlaylist/>
+                {props.playlists.length > 0 && <NewPlaylist/>}
                 {remainingPlaylists.map((playlist) => {
                     return <Playlist playlist={playlist}
                             key={playlist.id}
