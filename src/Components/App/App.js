@@ -53,7 +53,7 @@ function App() {
       trackCopy.tags.push(tag.label);
       trackListCopy[index] = trackCopy;
       setTrackList(trackListCopy);
-    } 
+    };
   };
 
   function removeTag(track, tag) {
@@ -67,13 +67,19 @@ function App() {
   };
 
   function selectTrack(track) {
-    if (selectedTracks.find(savedTrack => savedTrack.id === track.id)) return;
+    if (selectedTracks.find(currentTrack => currentTrack.id === track.id)) return;
     setSelectedTracks(prevState => [...prevState, track]);
   };
 
   function removeTrack(track) {
-    const newTracks = selectedTracks.filter(currentTrack => currentTrack.id !== track.id);
-    setSelectedTracks(newTracks);
+    if (selectedTracks.find(currentTrack => currentTrack.id === track.id)) {
+      const newTracks = selectedTracks.filter(currentTrack => currentTrack.id !== track.id);
+      setSelectedTracks(newTracks);
+    }  
+  };
+
+  function selectAllTracks() {
+    setSelectedTracks(trackList);
   };
 
   async function loadPlaylists() {
@@ -104,7 +110,7 @@ function App() {
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
             <TrackList trackList={dynamicSearch()} addTag={addTag} removeTag={removeTag} 
-            selectTrack={selectTrack} removeTrack={removeTrack} />
+            selectTrack={selectTrack} removeTrack={removeTrack} selectAll={selectAllTracks} />
             <PlaylistMod playlists={playlists} isSelected={isSelected} />
           </div>
         </div>

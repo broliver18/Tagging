@@ -24,7 +24,7 @@
 
 .Track-action-remove {
   content: "\2713";
-  color: lightgreen
+  color: #6c41ec
 }
   
 .Track-action-add:hover {
@@ -32,7 +32,7 @@
 }
 
 .Track-action-remove:hover {
-  color: green;
+  color: rgba(108, 65, 233, .7);
 }
   
 .Track-information {
