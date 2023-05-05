@@ -50,6 +50,7 @@ const Spotify = {
         artist: trackNum.track.artists[0].name,
         album: trackNum.track.album.name,
         tags: [],
+        selected: false,
         uri: trackNum.track.uri
     }));
       return tracks;

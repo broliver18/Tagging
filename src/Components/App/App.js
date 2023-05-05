@@ -68,10 +68,22 @@ function App() {
 
   function selectTrack(track) {
     if (selectedTracks.find(currentTrack => currentTrack.id === track.id)) return;
-    setSelectedTracks(prevState => [...prevState, track]);
+    const trackListCopy = [...trackList];
+    const trackCopy = trackListCopy.find(o => o.id === track.id);
+    const index = trackListCopy.findIndex(o => o.id === track.id);
+    trackCopy.selected = true;
+    trackListCopy[index] = trackCopy;
+    setTrackList(trackListCopy);
+    setSelectedTracks(prevState => [...prevState, trackCopy]);
   };
 
   function removeTrack(track) {
+    const trackListCopy = [...trackList];
+    const trackCopy = trackListCopy.find(o => o.id === track.id);
+    const index = trackListCopy.findIndex(o => o.id === track.id);
+    trackCopy.selected = false;
+    trackListCopy[index] = trackCopy;
+    setTrackList(trackListCopy)
     if (selectedTracks.find(currentTrack => currentTrack.id === track.id)) {
       const newTracks = selectedTracks.filter(currentTrack => currentTrack.id !== track.id);
       setSelectedTracks(newTracks);
@@ -79,6 +91,9 @@ function App() {
   };
 
   function selectAllTracks() {
+    const trackListCopy = [...trackList];
+    trackListCopy.map(currentTrack => currentTrack.selected = true);
+    setTrackList(trackListCopy);
     setSelectedTracks(trackList);
   };
 

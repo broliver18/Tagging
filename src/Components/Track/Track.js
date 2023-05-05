@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Track.css';
 
 import Tags from '../Tags/Tags';
-function Track(props) {
-    const [isRemoval, setIsRemoval] = useState(false);
-
+function Track(props) {   
     function renderAction() {
-        if (isRemoval || props.selectAll) {
-            if (!isRemoval && props.selectAll) setIsRemoval(true);
+        if (props.track.selected) {
             return <button className="Track-action-remove" onClick={removeTrack}>&#10003;</button>
-        } else if (!isRemoval) {
+        } else  {
             return <button className="Track-action-add" onClick={selectTrack}>+</button>
         };
     };
 
     function selectTrack() {
         props.selectTrack(props.track);
-        setIsRemoval(true);
     };
 
     function removeTrack() {
-        if (props.selectAll) props.toggleSelect();
         props.removeTrack(props.track);
-        setIsRemoval(false);
     };
 
     return (
