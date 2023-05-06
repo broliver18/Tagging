@@ -108,15 +108,15 @@ const Spotify = {
     const profile = await this.getProfile();
     const userId = profile.id;
 
-    const playlistResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+    const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
       headers: headers,
       method: 'POST',
       body: JSON.stringify({
         name
       })
     });
-    const playlistJsonResponse = playlistResponse.json();
-    const playlistId = playlistJsonResponse.id;
+    const jsonResponse = response.json();
+    const playlistId = jsonResponse.id;
 
     return await this.addToPlaylist(playlistId, trackUris);
   }
