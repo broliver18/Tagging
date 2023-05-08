@@ -22,7 +22,7 @@ function Playlist(props) {
     };
 
     function selectPlaylist() {
-        props.onSelect(props.playlist);
+        if (!props.isAddition) props.onSelect(props.playlist);
     };
 
     return (
