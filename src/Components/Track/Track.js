@@ -5,9 +5,9 @@ import Tags from '../Tags/Tags';
 function Track(props) {   
     function renderAction() {
         if (props.track.selected) {
-            return <button className="Track-action-remove" onClick={removeTrack}>&#10003;</button>
+            return <button className="Remove-button" onClick={removeTrack}>&#10003;</button>
         } else  {
-            return <button className="Track-action-add" onClick={selectTrack}>+</button>
+            return <button className="Add-button" onClick={selectTrack}>+</button>
         };
     };
 

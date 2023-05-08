@@ -9,7 +9,7 @@
   display: block;
 }
   
-.Track-action-add, .Track-action-remove {
+.Add-button, .Remove-button {
   cursor: pointer;
   box-sizing: border-box;
   width: 30px;
@@ -22,16 +22,16 @@
   color: #fff;
 }
 
-.Track-action-remove {
+.Remove-button {
   content: "\2713";
-  color: #6c41ec
+  color: #6c41ec;
 }
   
-.Track-action-add:hover {
+.Add-button:hover {
   color: rgba(265, 265, 265, .5);
 }
 
-.Track-action-remove:hover {
+.Remove-button:hover {
   color: rgba(108, 65, 233, .7);
 }
   
@@ -41,6 +41,7 @@
   flex-direction: column;
   justify-content: center;
   height: 72px;
+  color: #fff;
 }
   
 .Track-information h3 {

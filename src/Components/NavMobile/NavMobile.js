@@ -8,7 +8,7 @@ function NavMobile(props) {
         return () => {
             window.removeEventListener("click", props.closeNav);
         }
-    })
+    });
 
     return (
         <div className="NavMobile">

@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Playlist.css';
 
 function Playlist(props) {
+    const [isSelected, setIsSelected] = useState(false);
+
+    function toggleSelect() {
+        setIsSelected(true);
+        setTimeout(() => {
+            setIsSelected(false);
+        }, 500)
+    };
+
     function renderAction() {
         if (props.isAddition) {
-            return <button className="Playlist-action">+</button>
-        }
-    }
+            if (isSelected) {
+                return <button className="No-hover">&#10003;</button>
+            } else {
+            return <button className="Add-button" onClick={toggleSelect}>+</button>
+            }
+        };
+    };
 
     function selectPlaylist() {
         props.onSelect(props.playlist);
-    }
+    };
 
     return (
         <div className="Playlist">

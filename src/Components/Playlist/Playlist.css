@@ -4,26 +4,26 @@
     height: 4rem;
 }
 
-.Playlist-action {
-    cursor: pointer;
-    padding: 0.5rem;
-    font-size: 1.05rem;
-    transition: color .25s;
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    color: #fff;
-}
-  
-.Playlist-action:hover {
-    color: rgba(265, 265, 265, .5);
-}
-
 .Playlist-information h3 {
     cursor: pointer;
 }
 
 .Playlist-information h3:hover {
     color: gray;
+}
+
+.No-hover {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 30px;
+    padding: .5rem;
+    font-size: 1.05rem;
+    border: 0px;
+    margin-left: 2px;
+    transition: color .25s;
+    background-color: rgba(0, 0, 0, 0);
+    content: "\2713";
+    color: #6c41ec;
 }
   
 .Playlist-information, .Playlist-to-add {
