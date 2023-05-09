@@ -20,6 +20,14 @@ function TrackList(props) {
         setTagOptions(removeOption(tag));
     };
 
+    function renderAction() {
+        if (props.isSelectAll) {
+            return <button className="select-button" onClick={props.selectAll}>Deselect All</button>
+        } else {
+            return <button className="select-button" onClick={props.selectAll}>Select All</button>
+        }
+    }
+
     return (
         <div className="TrackList">
             <h2>Songs</h2>
@@ -37,7 +45,7 @@ function TrackList(props) {
                 })}
             </div>
             <div className="buttons">
-                <button className="select-button" onClick={props.selectAll}>Select All</button>
+                {renderAction()}
                 <button className="delete-button">Delete From Playlist</button>
             </div>
         </div>

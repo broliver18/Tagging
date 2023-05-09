@@ -11,13 +11,13 @@ import NavOpen from '../NavOpen/NavOpen';
 import Spotify from '../../util/Spotify';
 
 function App() {
-  
   const [playlists, setPlaylists] = useState([]);
   const [trackList, setTrackList] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
+  const [isSelectAll, setIsSelectAll] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState();
 
   function toggleOpen() {
@@ -83,7 +83,8 @@ function App() {
     const index = trackListCopy.findIndex(o => o.id === track.id);
     trackCopy.selected = false;
     trackListCopy[index] = trackCopy;
-    setTrackList(trackListCopy)
+    setTrackList(trackListCopy);
+    setIsSelectAll(false);
     if (selectedTracks.find(currentTrack => currentTrack.id === track.id)) {
       const newTracks = selectedTracks.filter(currentTrack => currentTrack.id !== track.id);
       setSelectedTracks(newTracks);
@@ -92,9 +93,16 @@ function App() {
 
   function selectAllTracks() {
     const trackListCopy = [...trackList];
-    trackListCopy.map(currentTrack => currentTrack.selected = true);
+    if (!isSelectAll) {
+      trackListCopy.map(currentTrack => currentTrack.selected = true);
+      setSelectedTracks(trackListCopy);
+      setIsSelectAll(true);
+    } else {
+      trackListCopy.map(currentTrack => currentTrack.selected = false);
+      setSelectedTracks([]);
+      setIsSelectAll(false);
+    }  
     setTrackList(trackListCopy);
-    setSelectedTracks(trackList);
   };
 
   async function loadPlaylists() {
@@ -124,8 +132,10 @@ function App() {
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
-            <TrackList trackList={dynamicSearch()} addTag={addTag} removeTag={removeTag} 
-            selectTrack={selectTrack} removeTrack={removeTrack} selectAll={selectAllTracks} />
+            <TrackList trackList={dynamicSearch()} addTag={addTag} 
+            removeTag={removeTag} selectTrack={selectTrack} 
+            removeTrack={removeTrack} selectAll={selectAllTracks} 
+            isSelectAll={isSelectAll} />
             <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} />
           </div>
         </div>
