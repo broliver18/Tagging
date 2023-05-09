@@ -5,7 +5,7 @@ import Playlist from '../Playlist/Playlist';
 import NewPlaylist from '../NewPlaylist/NewPlaylist';
 
 function PlaylistMod(props) {
-    const remainingPlaylists = props.playlists.filter(playlist => playlist !== props.isSelected);
+    const remainingPlaylists = props.playlists.filter(playlist => playlist !== props.selectedPlaylist);
 
     return (
         <div className="PlaylistMod">

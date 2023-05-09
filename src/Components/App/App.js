@@ -18,7 +18,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [open, setOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [isSelected, setIsSelected] = useState();
+  const [selectedPlaylist, setSelectedPlaylist] = useState();
 
   function toggleOpen() {
     setOpen(!open);
@@ -103,7 +103,7 @@ function App() {
   };
 
   async function selectPlaylist(playlist) {
-    setIsSelected(playlist);
+    setSelectedPlaylist(playlist);
     const endpoint = playlist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTrackList(playlistTracks);
@@ -126,7 +126,7 @@ function App() {
           <div className="App-playlist">
             <TrackList trackList={dynamicSearch()} addTag={addTag} removeTag={removeTag} 
             selectTrack={selectTrack} removeTrack={removeTrack} selectAll={selectAllTracks} />
-            <PlaylistMod playlists={playlists} isSelected={isSelected} />
+            <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} />
           </div>
         </div>
       </div>
