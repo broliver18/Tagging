@@ -32,7 +32,6 @@ function CloseOptionIcon() {
 function Tags(props) {
     const [input, setInput] = useState('');
     const [showMenu, setShowMenu] = useState(false);
-    const [tags, setTags] = useState(props.isMulti ? [] : null);
 
     const inputRef = useRef();
 
@@ -56,19 +55,17 @@ function Tags(props) {
         const trimmedInput = input.trim();
         const tag = trimmedInput;
 
-        if ((key === ',' || key === 'Enter') && trimmedInput.length && !tags.some(option => option.toLowerCase() === tag.toLowerCase())) {
+        if ((key === ',' || key === 'Enter') && trimmedInput.length && !props.track.tags.some(option => option.toLowerCase() === tag.toLowerCase())) {
             e.preventDefault();
-            setTags(prevState => [...prevState, tag]);
             props.onCreate(tag);
             props.addTag(props.track, tag);
             setInput('');
         }
 
-        if (key === 'Backspace' && !input.length && tags.length) {
+        if (key === 'Backspace' && !input.length && props.track.tags.length) {
             e.preventDefault();
-            const tagsCopy = [...tags];
+            const tagsCopy = [...props.track.tags];
             const poppedTagObject = tagsCopy.pop();
-            setTags(tagsCopy);
             props.removeTag(props.track, poppedTagObject);
             setInput(poppedTagObject);
         }
@@ -79,57 +76,42 @@ function Tags(props) {
         setShowMenu(!showMenu);
     };
 
-    function removeOption(option) {
-        return tags.filter(o => o !== option);
-    };
-
     function onTagRemove(e, option) {
         e.stopPropagation();
-        setTags(removeOption(option));
         props.removeTag(props.track, option)
     };
 
     function onItemClick(e, option) {
         e.stopPropagation();
-        let newTags;
-        if (props.isMulti) {
-            if (tags.findIndex(o => o === option) >= 0) {
-                newTags = removeOption(option);
-                props.removeTag(props.track, option);
-            } else {
-                newTags = [...tags, option];
-                props.addTag(props.track, option);
-            } 
+        if (props.track.tags.findIndex(o => o === option) >= 0) {
+            props.removeTag(props.track, option);
         } else {
-            newTags = option;
-        }
-        setTags(newTags);
+            props.addTag(props.track, option);
+        }; 
     };
 
     function getDisplay() {
-        if (props.isMulti) {
-            return (
-                <div className="Dropdown-tags">
-                    {tags.map(option => {
-                        return (
-                            <div className="Dropdown-tag-item" key={option}>
-                                {option}
-                                <span className="Dropdown-tag-close"
-                                    onClick={(e) => {onTagRemove(e, option)}}><CloseTagIcon/>
-                                </span>
-                            </div>
-                        )        
-                    })}
-                    <input
-                        value={input}
-                        placeholder="Enter a tag"
-                        onKeyDown={createTags}
-                        onChange={handleChange} 
-                        onClick={(e) => e.stopPropagation()}
-                        ref={inputRef} />
-                </div>
-            )     
-        };
+        return (
+            <div className="Dropdown-tags">
+                {props.track.tags.map(tag => {
+                    return (
+                        <div className="Dropdown-tag-item" key={tag}>
+                            {tag}
+                            <span className="Dropdown-tag-close"
+                                onClick={(e) => {onTagRemove(e, tag)}}><CloseTagIcon/>
+                            </span>
+                        </div>
+                    )        
+                })}
+                <input
+                    value={input}
+                    placeholder="Enter a tag"
+                    onKeyDown={createTags}
+                    onChange={handleChange} 
+                    onClick={(e) => e.stopPropagation()}
+                    ref={inputRef} />
+            </div>
+        )     
     };
 
 
