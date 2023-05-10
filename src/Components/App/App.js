@@ -13,6 +13,7 @@ import Spotify from '../../util/Spotify';
 function App() {
   const [playlists, setPlaylists] = useState([]);
   const [trackList, setTrackList] = useState([]);
+  const [filteredTrackList, setFilteredTrackList] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false);

@@ -22,9 +22,9 @@ function TrackList(props) {
 
     function renderAction() {
         if (props.isSelectAll) {
-            return <button className="select-button" onClick={props.selectAll}>Deselect All</button>
+            return <button className="Button" onClick={props.selectAll}>Deselect All</button>
         } else {
-            return <button className="select-button" onClick={props.selectAll}>Select All</button>
+            return <button className="Button" onClick={props.selectAll}>Select All</button>
         }
     }
 
@@ -44,9 +44,9 @@ function TrackList(props) {
                             removeTrack={props.removeTrack} />
                 })}
             </div>
-            <div className="buttons">
+            <div className="Buttons-container">
                 {renderAction()}
-                <button className="delete-button">Delete From Playlist</button>
+                <button className="Button">Delete From Playlist</button>
             </div>
         </div>
     )

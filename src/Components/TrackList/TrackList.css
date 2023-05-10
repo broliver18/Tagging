@@ -17,12 +17,12 @@
     background: transparent;
 }
 
-.buttons {
+.Buttons-container {
     display: flex;
     justify-content: space-around;
 }
 
-.select-button, .delete-button {
+.Button {
     cursor: pointer;
     width: 9rem;
     padding: .77rem 0;
@@ -30,13 +30,14 @@
     background-color: #6c41ec;
     color: #fff;
     text-align: center;
+    align-items: center;
     font-size: .83rem;
     transition: background-color .25s;
     border: 0px;
     font-weight: 500;
 }
 
-.select-button:hover, .delete-button:hover {
+.Button:hover {
     background-color: rgba(108, 65, 233, .7);
 }
   
@@ -44,5 +45,23 @@
     .TrackList {
         width: 90%;
         margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .Buttons-container {
+        justify-content: space-between;
+    }
+
+    .Button {
+        width: 7rem;
+        height: 3rem;
+        border-radius: 35px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .Button {
+        width: 5.3rem;
     }
 }
