@@ -2,21 +2,16 @@ import React from 'react';
 import './Track.css';
 
 import Tags from '../Tags/Tags';
-function Track(props) {   
+function Track(props) { 
+    const selectTrack = () => props.selectTrack(props.track);
+    const removeTrack = () => props.removeTrack(props.track);
+    
     function renderAction() {
         if (props.track.selected) {
             return <button className="Remove-button" onClick={removeTrack}>&#10003;</button>
         } else  {
             return <button className="Add-button" onClick={selectTrack}>+</button>
         };
-    };
-
-    function selectTrack() {
-        props.selectTrack(props.track);
-    };
-
-    function removeTrack() {
-        props.removeTrack(props.track);
     };
 
     return (

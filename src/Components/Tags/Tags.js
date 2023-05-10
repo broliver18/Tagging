@@ -79,32 +79,6 @@ function Tags(props) {
         setShowMenu(!showMenu);
     };
 
-    function getDisplay() {
-        if (props.isMulti) {
-            return (
-                <div className="Dropdown-tags">
-                    {tags.map(option => {
-                        return (
-                            <div className="Dropdown-tag-item" key={option.value}>
-                                {option.label}
-                                <span className="Dropdown-tag-close"
-                                    onClick={(e) => {onTagRemove(e, option)}}><CloseTagIcon/>
-                                </span>
-                            </div>
-                        )        
-                    })}
-                    <input
-                        value={input}
-                        placeholder="Enter a tag"
-                        onKeyDown={createTags}
-                        onChange={handleChange} 
-                        onClick={(e) => e.stopPropagation()}
-                        ref={inputRef} />
-                </div>
-            )     
-        };
-    };
-
     function removeOption(option) {
         return tags.filter(o => o.value !== option.value);
     };
@@ -131,6 +105,33 @@ function Tags(props) {
         }
         setTags(newValue);
     };
+
+    function getDisplay() {
+        if (props.isMulti) {
+            return (
+                <div className="Dropdown-tags">
+                    {tags.map(option => {
+                        return (
+                            <div className="Dropdown-tag-item" key={option.value}>
+                                {option.label}
+                                <span className="Dropdown-tag-close"
+                                    onClick={(e) => {onTagRemove(e, option)}}><CloseTagIcon/>
+                                </span>
+                            </div>
+                        )        
+                    })}
+                    <input
+                        value={input}
+                        placeholder="Enter a tag"
+                        onKeyDown={createTags}
+                        onChange={handleChange} 
+                        onClick={(e) => e.stopPropagation()}
+                        ref={inputRef} />
+                </div>
+            )     
+        };
+    };
+
 
     return (
         <div className="Dropdown-container">

@@ -54,8 +54,14 @@
   color: rgba(256, 256, 256, 0.8);
 }
 
+@media only screen and (max-width: 450px) {
+  .Track {
+    min-height: 7rem;
+  }
+}
+
 @media only screen and (max-width: 280px) {
   .Track {
-    min-height: 8.5rem;
+    min-height: 10rem;
   }
 }
