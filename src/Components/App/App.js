@@ -15,17 +15,17 @@ function App() {
   const [trackList, setTrackList] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
   const [isSelectAll, setIsSelectAll] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState();
 
-  const toggleOpen = () => setOpen(!open);
+  const toggleOpen = () => setIsOpen(!isOpen);
   const toggleClass = () => setActive(!isActive);
   const editSearchTerm = e => setSearchTerm(e.target.value);
 
   function closeNav() {
-    setOpen(false);
+    setIsOpen(false);
     setActive(false);
   };
 
@@ -114,7 +114,7 @@ function App() {
       <div className="Container">
         <Navigation playlists={playlists} onSelect={selectPlaylist}
                 onLogin={loadPlaylists} /> 
-        <NavMobile toggleOpen={toggleOpen} open={open}
+        <NavMobile toggleOpen={toggleOpen} isOpen={isOpen}
                 toggleClass={toggleClass} isActive={isActive}
                 closeNav={closeNav} >
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 

@@ -23,7 +23,7 @@ function NavMobile(props) {
                 <div className="bar3"></div>
             </div>
             <CSSTransition 
-            in={props.open}
+            in={props.isOpen}
             timeout={300}
             classNames="Playlist-open"
             unmountOnExit>
