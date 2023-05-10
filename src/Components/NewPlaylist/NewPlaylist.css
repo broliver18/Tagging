@@ -1,10 +1,10 @@
-.NewPlaylist {
+.New-playlist {
     display: flex;
     align-items: center;
     height: 4rem;
 }
   
-.NewPlaylist-information {
+.New-playlist-information {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -12,11 +12,27 @@
     height: 40px;
     color: #fff;
 }
-  
-.NewPlaylist-action:hover {
-    color: rgba(265, 265, 265, .5);
+
+.Create-playlist {
+    width: 100%;
 }
 
-.NewPlaylist-information h3 {
-    margin-bottom: .22rem;
+.Create-playlist input {
+    box-sizing: border-box;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+.Create-playlist-button {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 30px;
+    padding: .5rem;
+    font-size: 1.05rem;
+    border: 0px;
+    margin-left: 2px;
+    transition: color .25s;
+    background-color: rgba(0, 0, 0, 0);
+    color: #6c41ec;
 }

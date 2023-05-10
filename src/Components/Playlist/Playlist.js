@@ -14,7 +14,7 @@ function Playlist(props) {
     function renderAction() {
         if (props.isAddition) {
             if (isSelected) {
-                return <button className="No-hover">&#10003;</button>
+                return <button className="no-hover">&#10003;</button>
             } else {
             return <button className="Add-button" onClick={toggleSelect}>+</button>
             }

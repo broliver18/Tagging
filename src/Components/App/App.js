@@ -20,17 +20,9 @@ function App() {
   const [isSelectAll, setIsSelectAll] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState();
 
-  function toggleOpen() {
-    setOpen(!open);
-  };
-
-  function toggleClass() {
-    setActive(!isActive);
-  };
-
-  function editSearchTerm(e) {
-    setSearchTerm(e.target.value);
-  };
+  const toggleOpen = () => setOpen(!open);
+  const toggleClass = () => setActive(!isActive);
+  const editSearchTerm = e => setSearchTerm(e.target.value);
 
   function closeNav() {
     setOpen(false);

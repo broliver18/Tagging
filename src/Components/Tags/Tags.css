@@ -87,10 +87,6 @@ svg path {
   background-color: lightgray;
 }
 
-.Dropdown-tags input:focus {
-  outline: none;
-}
-
 .Dropdown-tag-item {
   display: flex;
   align-items: center;
