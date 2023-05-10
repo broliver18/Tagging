@@ -54,9 +54,9 @@ function Tags(props) {
     function createTags(e) {
         const { key } = e;
         const trimmedInput = input.trim();
-        const tag = { value: trimmedInput, label: trimmedInput }
+        const tag = trimmedInput;
 
-        if ((key === ',' || key === 'Enter') && trimmedInput.length && !tags.some(option => option.value.toLowerCase() === trimmedInput.toLowerCase())) {
+        if ((key === ',' || key === 'Enter') && trimmedInput.length && !tags.some(option => option.toLowerCase() === tag.toLowerCase())) {
             e.preventDefault();
             setTags(prevState => [...prevState, tag]);
             props.onCreate(tag);
@@ -70,7 +70,7 @@ function Tags(props) {
             const poppedTagObject = tagsCopy.pop();
             setTags(tagsCopy);
             props.removeTag(props.track, poppedTagObject);
-            setInput(poppedTagObject.label);
+            setInput(poppedTagObject);
         }
     };
 
@@ -80,7 +80,7 @@ function Tags(props) {
     };
 
     function removeOption(option) {
-        return tags.filter(o => o.value !== option.value);
+        return tags.filter(o => o !== option);
     };
 
     function onTagRemove(e, option) {
@@ -91,19 +91,19 @@ function Tags(props) {
 
     function onItemClick(e, option) {
         e.stopPropagation();
-        let newValue;
+        let newTags;
         if (props.isMulti) {
-            if (tags.findIndex(o => o.value === option.value) >= 0) {
-                newValue = removeOption(option);
+            if (tags.findIndex(o => o === option) >= 0) {
+                newTags = removeOption(option);
                 props.removeTag(props.track, option);
             } else {
-                newValue = [...tags, option];
+                newTags = [...tags, option];
                 props.addTag(props.track, option);
             } 
         } else {
-            newValue = option;
+            newTags = option;
         }
-        setTags(newValue);
+        setTags(newTags);
     };
 
     function getDisplay() {
@@ -112,8 +112,8 @@ function Tags(props) {
                 <div className="Dropdown-tags">
                     {tags.map(option => {
                         return (
-                            <div className="Dropdown-tag-item" key={option.value}>
-                                {option.label}
+                            <div className="Dropdown-tag-item" key={option}>
+                                {option}
                                 <span className="Dropdown-tag-close"
                                     onClick={(e) => {onTagRemove(e, option)}}><CloseTagIcon/>
                                 </span>
@@ -151,8 +151,8 @@ function Tags(props) {
                         <div 
                             className="Dropdown-item" 
                             onClick={(e) => onItemClick(e, option)}
-                            key={option.value}>
-                            {option.label}
+                            key={option}>
+                            {option}
                             <span className="Dropdown-option-close"
                                 onClick={(e) => 
                                     props.onOptionRemove(e, option)}

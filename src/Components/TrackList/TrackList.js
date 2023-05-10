@@ -7,12 +7,12 @@ function TrackList(props) {
     const [tagOptions, setTagOptions] = useState([]);
 
     function createTagOptions(tag) {
-        if (!tagOptions.some(option => option.value.toLowerCase() === tag.value.toLowerCase()))
+        if (!tagOptions.some(option => option.toLowerCase() === tag.toLowerCase()))
         setTagOptions(prevState => [...prevState, tag]);
     };
 
     function removeOption(tag) {
-        return tagOptions.filter(o => o.value !== tag.value);
+        return tagOptions.filter(o => o !== tag);
     };
 
     function onOptionRemove(e, tag) {

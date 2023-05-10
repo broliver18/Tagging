@@ -42,7 +42,7 @@ function App() {
     const trackCopy = trackListCopy.find(o => o.id === track.id);
     const index = trackListCopy.findIndex(o => o.id === track.id);
     if (!trackCopy.tags.includes(tag)) {
-      trackCopy.tags.push(tag.label);
+      trackCopy.tags.push(tag);
       trackListCopy[index] = trackCopy;
       setTrackList(trackListCopy);
     };
@@ -52,7 +52,7 @@ function App() {
     const trackListCopy = [...trackList];
     const trackCopy = trackListCopy.find(o => o.id === track.id);
     const index = trackListCopy.findIndex(o => o.id === track.id);
-    const filteredTags = trackCopy.tags.filter(o => o !== tag.value);
+    const filteredTags = trackCopy.tags.filter(o => o !== tag);
     trackCopy.tags = filteredTags;
     trackListCopy[index] = trackCopy;
     setTrackList(trackListCopy);
