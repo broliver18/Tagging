@@ -13,7 +13,6 @@ import Spotify from '../../util/Spotify';
 function App() {
   const [playlists, setPlaylists] = useState([]);
   const [trackList, setTrackList] = useState([]);
-  const [filteredTrackList, setFilteredTrackList] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +30,16 @@ function App() {
   };
 
   function dynamicSearch() {
-    return trackList.filter(track =>
+    const filteredTracks = trackList.filter(track =>
       track.name.toLowerCase().includes(searchTerm.toLowerCase())
       || track.artist.toLowerCase().includes(searchTerm.toLowerCase())
       || track.album.toLowerCase().includes(searchTerm.toLowerCase())
       || track.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))); 
+
+      if (isSelectAll && filteredTracks.length !== selectedTracks.length) setIsSelectAll(false);
+      else if (!isSelectAll && filteredTracks.length === selectedTracks.length) setIsSelectAll(true);
+      
+      return filteredTracks;
   };
 
   function addTag(track, tag) {
@@ -86,12 +90,19 @@ function App() {
 
   function selectAllTracks() {
     const trackListCopy = [...trackList];
+    const filteredTracks = [...dynamicSearch()];
     if (!isSelectAll) {
-      trackListCopy.map(currentTrack => currentTrack.selected = true);
-      setSelectedTracks(trackListCopy);
+      trackListCopy.map(currentTrack => {
+        if (filteredTracks.includes(currentTrack)) currentTrack.selected = true;
+        return trackListCopy;
+      })
+      setSelectedTracks(filteredTracks);
       setIsSelectAll(true);
     } else {
-      trackListCopy.map(currentTrack => currentTrack.selected = false);
+      trackListCopy.map(currentTrack => {
+        if (filteredTracks.includes(currentTrack)) currentTrack.selected = false;
+        return trackListCopy;
+      })
       setSelectedTracks([]);
       setIsSelectAll(false);
     }  
