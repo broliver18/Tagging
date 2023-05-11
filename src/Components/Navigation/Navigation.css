@@ -50,7 +50,7 @@ h1 .highlight {
   background: transparent;
 }
   
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1300px) {
   .Navigation {
     display: none;
   }

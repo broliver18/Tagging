@@ -16,7 +16,7 @@
     background: transparent;
   }
     
-  @media only screen and (max-width: 1020px) {
+  @media only screen and (max-width: 1300px) {
     .PlaylistMod {
       width: 90%;
       margin-bottom: 2rem;

@@ -41,7 +41,7 @@
     background-color: rgba(108, 65, 233, .7);
 }
   
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1300px) {
     .TrackList {
         width: 90%;
         margin-bottom: 2rem;
