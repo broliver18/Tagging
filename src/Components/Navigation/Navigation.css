@@ -21,16 +21,19 @@ h1 .highlight {
   color: #6c41ec;
 }
 
-.Navigation-login {
+.Navigation-login, .Profile-name {
   padding-bottom: 1.5rem;
   border-bottom: solid 1px gray;
   margin-top: 2rem;
 }
 
-.Navigation-login h3 {
+.Navigation-login h3, .Profile-name h3 {
   color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.Navigation-login h3 {
   cursor: pointer;
 }
 

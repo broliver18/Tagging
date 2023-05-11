@@ -37,17 +37,20 @@
         overflow-y: scroll;
     }
 
-    .NavOpen-login {
+    .NavOpen-login, .Profile-name-mobile {
         margin: 0 1rem 0 1rem;
         padding: 1.5rem;
         padding-left: 0.8rem;
         border-bottom: solid 1px gray;
     }
 
-    .NavOpen-login h3 {
+    .NavOpen-login h3, .Profile-name-mobile h3 {
         color: #fff;
         font-size: 1.2rem;
         font-weight: bold;
+    }
+
+    .NavOpen-login h3 {
         cursor: pointer;
     }
 

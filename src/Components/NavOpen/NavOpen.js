@@ -4,6 +4,28 @@ import './NavOpen.css';
 import Playlist from '../Playlist/Playlist';
 
 function NavOpen(props) {
+    function login() {
+        props.onLogin();
+        props.getProfile();
+    };
+
+    function renderAction() {
+        if (props.name) {
+            return (
+                <div className="Profile-name-mobile">
+                    <h3>{props.name}</h3>
+                </div>
+            )
+        } else {
+            return (
+                <div className="NavOpen-login">
+                    <h3 onClick={login}>Login</h3>
+                </div>
+            )
+        }
+    };
+
+
     return (
         <div className="NavOpen">
             <div className="Button-close" onClick={() => {
@@ -12,9 +34,7 @@ function NavOpen(props) {
             }}>
                 <div></div>
             </div>
-            <div className="NavOpen-login">
-                <h3 onClick={props.onLogin}>Login</h3>
-            </div>
+            {renderAction()}
             <div className="Playlist-container">
                 {
                 props.playlists.map((playlist) => {

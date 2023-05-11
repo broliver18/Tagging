@@ -15,10 +15,12 @@ function App() {
   const [trackList, setTrackList] = useState([]);
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [name, setName] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
   const [isSelectAll, setIsSelectAll] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState();
+ 
 
   const toggleOpen = () => setIsOpen(!isOpen);
   const toggleClass = () => setActive(!isActive);
@@ -109,6 +111,12 @@ function App() {
     setTrackList(trackListCopy);
   };
 
+  async function getProfile() {
+    const profile = await Spotify.getProfile();
+    const displayName = profile.displayName;
+    setName(displayName);
+  }
+
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
     setPlaylists(playlists);
@@ -125,13 +133,14 @@ function App() {
     <div>
       <div className="Container">
         <Navigation playlists={playlists} onSelect={selectPlaylist}
-                onLogin={loadPlaylists} /> 
+                onLogin={loadPlaylists} getProfile={getProfile} name={name} /> 
         <NavMobile toggleOpen={toggleOpen} isOpen={isOpen}
                 toggleClass={toggleClass} isActive={isActive}
                 closeNav={closeNav} >
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
                 toggleClass={toggleClass} isActive={isActive}
-                onSelect={selectPlaylist} onLogin={loadPlaylists} />
+                onSelect={selectPlaylist} onLogin={loadPlaylists} 
+                getProfile={getProfile} name={name} />
         </NavMobile>  
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
