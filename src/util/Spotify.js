@@ -26,7 +26,7 @@ const Spotify = {
     const accessToken = this.getAccessToken();
     const headers = { Authorization: 'Bearer ' + accessToken };
 
-    const response = await fetch(`https://api.spotify.com/v1/me`, { headers: headers });
+    const response = await fetch('https://api.spotify.com/v1/me', { headers: headers });
     const jsonResponse = await response.json();
     
     const profile = {
@@ -106,7 +106,7 @@ const Spotify = {
     const headers = { Authorization: 'Bearer ' + accessToken };
 
     const profile = await this.getProfile();
-    const userId = profile.id;
+    const userId = profile.userId;
 
     const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
       headers: headers,
