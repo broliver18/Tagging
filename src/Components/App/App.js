@@ -150,9 +150,16 @@ function App() {
     if (!selectedTracks.length) return;
 
     const playlistId = selectedPlaylist.id;
-    const snapshotId = selectedPlaylist.snapshot_id;
-    const trackUris = selectedTracks.map(currentTrack => ({ uri: currentTrack.uri })); 
-    return await Spotify.removeFromPlaylist(playlistId, trackUris, snapshotId);
+    const trackUris = selectedTracks.map(currentTrack => ({ uri: currentTrack.uri }));
+    return await Spotify.removeFromPlaylist(playlistId, trackUris);
+  };
+
+  async function onRemove() {
+    await removeFromPlaylist();
+
+    const endpoint = selectedPlaylist.tracks.href;
+    const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
+    setTrackList(playlistTracks);
   };
  
   return (
@@ -174,7 +181,7 @@ function App() {
             <TrackList trackList={dynamicSearch()} addTag={addTag} 
                   removeTag={removeTag} selectTrack={selectTrack} 
                   removeTrack={removeTrack} selectAll={selectAllTracks} 
-                  isSelectAll={isSelectAll} onRemove={removeFromPlaylist} />
+                  isSelectAll={isSelectAll} onRemove={onRemove} />
             <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} 
                   onAdd={addToPlaylist} />
           </div>

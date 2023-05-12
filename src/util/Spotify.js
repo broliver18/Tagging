@@ -46,8 +46,7 @@ const Spotify = {
     const playlists = jsonResponse.items.map(playlist => ({
       id: playlist.id,
       name: playlist.name,
-      tracks: playlist.tracks,
-      snapshot_id: playlist.snapshot_id
+      tracks: playlist.tracks
     }));
     return playlists;
   },
@@ -79,13 +78,12 @@ const Spotify = {
       headers: headers,
       method: 'POST',
       body: JSON.stringify({
-        uris: trackUris,
-        position: 0
+        uris: trackUris
       })
     });
   },
 
-  async removeFromPlaylist(playlistId, trackUris, snapshot_id) {
+  async removeFromPlaylist(playlistId, trackUris) {
     const accessToken = this.getAccessToken();
     const headers = { Authorization: 'Bearer ' + accessToken };
 
@@ -94,7 +92,6 @@ const Spotify = {
       method: 'DELETE',
       body: JSON.stringify({
         tracks: trackUris,
-        snapshot_id
       })
     });
   },
