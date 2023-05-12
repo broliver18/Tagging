@@ -160,6 +160,7 @@ function App() {
     const endpoint = selectedPlaylist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTrackList(playlistTracks);
+    setSelectedTracks([]);
   };
  
   return (
