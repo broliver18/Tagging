@@ -15,7 +15,8 @@ function PlaylistMod(props) {
                 {remainingPlaylists.map((playlist) => {
                     return <Playlist playlist={playlist}
                             key={playlist.id}
-                            isAddition={true} />
+                            isAddition={true} 
+                            onAdd={props.onAdd} />
                 })}
             </div>
         </div>

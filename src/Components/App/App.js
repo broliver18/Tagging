@@ -129,6 +129,21 @@ function App() {
     const endpoint = playlist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTrackList(playlistTracks);
+    setSelectedTracks([]);
+  };
+
+  async function addToPlaylist(playlist) {
+    if (!selectedTracks.length) return;
+
+    const playlistId = playlist.id;
+    const endpoint = playlist.tracks.href;
+    const tracksToCompare = await Spotify.getPlaylistTracks(endpoint);
+    const potentialUris = selectedTracks.map(currentTrack => currentTrack.uri);
+    const urisToCompare = tracksToCompare.map(currentTrack => currentTrack.uri);
+    const trackUris = potentialUris.filter(uri => !urisToCompare.includes(uri));
+
+    if (!trackUris.length) return;
+    return await Spotify.addToPlaylist(playlistId, trackUris);
   };
  
   return (
@@ -148,10 +163,11 @@ function App() {
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
           <div className="App-playlist">
             <TrackList trackList={dynamicSearch()} addTag={addTag} 
-            removeTag={removeTag} selectTrack={selectTrack} 
-            removeTrack={removeTrack} selectAll={selectAllTracks} 
-            isSelectAll={isSelectAll} />
-            <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} />
+                  removeTag={removeTag} selectTrack={selectTrack} 
+                  removeTrack={removeTrack} selectAll={selectAllTracks} 
+                  isSelectAll={isSelectAll} />
+            <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} 
+                  onAdd={addToPlaylist} />
           </div>
         </div>
       </div>

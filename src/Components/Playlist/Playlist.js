@@ -16,7 +16,10 @@ function Playlist(props) {
             if (isSelected) {
                 return <button className="no-hover">&#10003;</button>
             } else {
-            return <button className="Add-button" onClick={toggleSelect}>+</button>
+            return <button className="Add-button" onClick={() => {
+                    toggleSelect();
+                    props.onAdd(props.playlist)
+                 }}>+</button>
             }
         };
     };
