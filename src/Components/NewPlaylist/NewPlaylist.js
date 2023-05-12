@@ -3,12 +3,12 @@ import './NewPlaylist.css';
 
 function NewPlaylist(props) {
     const [showMenu, setShowMenu] = useState(false);
-    const [input, setInput] = useState('');
+    const [playlistName, setPlaylistName] = useState('');
     const [isSelected, setIsSelected] = useState(false);
 
     const inputRef = useRef();
 
-    const handleChange = e => setInput(e.target.value);
+    const handleChange = e => setPlaylistName(e.target.value);
 
     useEffect(() => {
         const handler = () => setShowMenu(false);
@@ -30,12 +30,12 @@ function NewPlaylist(props) {
 
     function toggleSelect(e) {
         e.stopPropagation();
-        if (input.length) {
+        if (playlistName.length) {
             setIsSelected(true);
             setTimeout(() => {
                 setIsSelected(false);
                 setShowMenu(false);
-                setInput('');
+                setPlaylistName('');
             }, 500)
         };
     };
@@ -59,7 +59,7 @@ function NewPlaylist(props) {
             return (
                 <div className="Create-playlist">
                     <input
-                        value={input}
+                        value={playlistName}
                         placeholder="Enter playlist name" 
                         onChange={handleChange}
                         onKeyDown={onEnter} 
