@@ -38,8 +38,9 @@ function App() {
       || track.album.toLowerCase().includes(searchTerm.toLowerCase())
       || track.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))); 
 
-      if (isSelectAll && filteredTracks.length !== selectedTracks.length) setIsSelectAll(false);
-      else if (!isSelectAll && filteredTracks.length === selectedTracks.length) setIsSelectAll(true);
+      const filteredSelected = filteredTracks.filter(currentTrack => currentTrack.selected === true);
+      if (isSelectAll && filteredTracks.length > filteredSelected.length) setIsSelectAll(false);
+      else if (!isSelectAll && filteredTracks.length <= filteredSelected.length) setIsSelectAll(true);
       
       return filteredTracks;
   };
@@ -98,16 +99,16 @@ function App() {
         if (filteredTracks.includes(currentTrack)) currentTrack.selected = true;
         return trackListCopy;
       })
-      setSelectedTracks(filteredTracks);
       setIsSelectAll(true);
     } else {
       trackListCopy.map(currentTrack => {
         if (filteredTracks.includes(currentTrack)) currentTrack.selected = false;
         return trackListCopy;
       })
-      setSelectedTracks([]);
       setIsSelectAll(false);
-    }  
+    };
+    const selected = trackListCopy.filter(currentTrack => currentTrack.selected === true); 
+    setSelectedTracks(selected); 
     setTrackList(trackListCopy);
   };
 
