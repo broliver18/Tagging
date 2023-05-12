@@ -44,7 +44,7 @@ function App() {
       } else if (!isSelectAll && filteredTracks.length <= filteredSelected.length) {
         if (filteredTracks.length) setIsSelectAll(true);
       };
-      return filteredTracks;
+    return filteredTracks;
   };
 
   function addTag(track, tag) {
