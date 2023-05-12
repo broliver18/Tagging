@@ -39,9 +39,11 @@ function App() {
       || track.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))); 
 
       const filteredSelected = filteredTracks.filter(currentTrack => currentTrack.selected === true);
-      if (isSelectAll && filteredTracks.length > filteredSelected.length) setIsSelectAll(false);
-      else if (!isSelectAll && filteredTracks.length <= filteredSelected.length) setIsSelectAll(true);
-      
+      if (isSelectAll && filteredTracks.length > filteredSelected.length) {
+        setIsSelectAll(false);
+      } else if (!isSelectAll && filteredTracks.length <= filteredSelected.length) {
+        if (filteredTracks.length) setIsSelectAll(true);
+      };
       return filteredTracks;
   };
 
