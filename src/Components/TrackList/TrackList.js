@@ -46,7 +46,7 @@ function TrackList(props) {
             </div>
             <div className="Buttons-container">
                 {renderAction()}
-                <button className="Button">Delete From Playlist</button>
+                <button className="Button" onClick={props.onRemove}>Delete From Playlist</button>
             </div>
         </div>
     )
