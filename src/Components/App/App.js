@@ -130,6 +130,7 @@ function App() {
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTrackList(playlistTracks);
     setSelectedTracks([]);
+    setSearchTerm('');
   };
 
   async function addToPlaylist(playlist) {
@@ -143,7 +144,7 @@ function App() {
     const trackUris = potentialUris.filter(uri => !urisToCompare.includes(uri));
 
     if (!trackUris.length) return;
-    return await Spotify.addToPlaylist(playlistId, trackUris);
+    await Spotify.addToPlaylist(playlistId, trackUris);
   };
 
   async function removeFromPlaylist() {
@@ -151,17 +152,26 @@ function App() {
 
     const playlistId = selectedPlaylist.id;
     const trackUris = selectedTracks.map(currentTrack => ({ uri: currentTrack.uri }));
-    return await Spotify.removeFromPlaylist(playlistId, trackUris);
-  };
-
-  async function onRemove() {
-    await removeFromPlaylist();
+    await Spotify.removeFromPlaylist(playlistId, trackUris);
 
     const endpoint = selectedPlaylist.tracks.href;
     const playlistTracks = await Spotify.getPlaylistTracks(endpoint);
     setTrackList(playlistTracks);
     setSelectedTracks([]);
   };
+
+  async function createPlaylist(playlistName) {
+    const playlistNames = playlists.map(currentPlaylist => currentPlaylist.name);
+    if (!playlistNames.includes(playlistName)) {
+      const trackUris = selectedTracks.map(currentTrack => currentTrack.uri);
+      await Spotify.createPlaylist(playlistName, trackUris);
+      await loadPlaylists();
+    } else {
+      alert('There is already a playlist with this name.');
+    }
+  };
+
+
  
   return (
     <div>
@@ -182,9 +192,9 @@ function App() {
             <TrackList trackList={dynamicSearch()} addTag={addTag} 
                   removeTag={removeTag} selectTrack={selectTrack} 
                   removeTrack={removeTrack} selectAll={selectAllTracks} 
-                  isSelectAll={isSelectAll} onRemove={onRemove} />
+                  isSelectAll={isSelectAll} onRemove={removeFromPlaylist} />
             <PlaylistMod playlists={playlists} selectedPlaylist={selectedPlaylist} 
-                  onAdd={addToPlaylist} />
+                  onAdd={addToPlaylist} onCreate={createPlaylist} />
           </div>
         </div>
       </div>

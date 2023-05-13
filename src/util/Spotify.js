@@ -97,7 +97,7 @@ const Spotify = {
   },
 
   async createPlaylist(name, trackUris) {
-    if (!name) return;
+    if (!name || !trackUris.length) return;
 
     const accessToken = this.getAccessToken();
     const headers = { Authorization: 'Bearer ' + accessToken };
@@ -108,14 +108,12 @@ const Spotify = {
     const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
       headers: headers,
       method: 'POST',
-      body: JSON.stringify({
-        name
-      })
+      body: JSON.stringify({ name })
     });
-    const jsonResponse = response.json();
+    const jsonResponse = await response.json();
     const playlistId = jsonResponse.id;
-
-    return await this.addToPlaylist(playlistId, trackUris);
+    
+    await this.addToPlaylist(playlistId, trackUris);
   }
 }
 

@@ -31,6 +31,7 @@ function NewPlaylist(props) {
     function toggleSelect(e) {
         e.stopPropagation();
         if (playlistName.length) {
+            props.onCreate(playlistName);
             setIsSelected(true);
             setTimeout(() => {
                 setIsSelected(false);
