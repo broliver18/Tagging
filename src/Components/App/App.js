@@ -117,7 +117,7 @@ function App() {
     const profile = await Spotify.getProfile();
     const displayName = profile.displayName;
     setUsername(displayName);
-  }
+  };
 
   async function loadPlaylists() {
     const playlists = await Spotify.getPlaylists();
