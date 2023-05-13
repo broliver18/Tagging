@@ -20,7 +20,6 @@ function App() {
   const [isActive, setActive] = useState(false);
   const [isSelectAll, setIsSelectAll] = useState(false);
   const [selectedPlaylist, setSelectedPlaylist] = useState();
- 
 
   const toggleOpen = () => setIsOpen(!isOpen);
   const toggleClass = () => setActive(!isActive);
