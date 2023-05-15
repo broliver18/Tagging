@@ -10,7 +10,7 @@ an existing one, you could use tags to determine which playlists will contains w
 by each tag nmae, click on the select all button, and create a new playlist from the selected tracks.
 
 ## Featurs
-- Once a tag is created, it is saved to a dropdown menu where it can be added to other tracks by a simple click.
+- Once a tag is created, it is saved to each track's dropdown tag menu where it can be added to other tracks by a simple click.
 - The tag options mentioned above can be deleted by clicking on the 'x' button next to it
 - Tags can be created by either selecting from the dropdown menu or by typing out a name and pressing the ',' or 'Enter' key
 - Tags can be deleted by clicking the 'x' button next to a tag or by hitting the 'Backspace' key
@@ -28,7 +28,8 @@ by each tag nmae, click on the select all button, and create a new playlist from
 4. Navigate to the parent folder of the project - jamming (not jamming-main) using the `cd` commmand
 5. Type `npm install` into the terminal and wait for the install to complete
 6. Type `npm start` to open application on 'http://localhost:3000'
-7. Search for tracks and create a new playlist
+7. Each track contains a tag menu that appears once mouse hovers over the track
+8. Start organizing your playlists
 
 ## Technologies
 - React.js
@@ -36,3 +37,4 @@ by each tag nmae, click on the select all button, and create a new playlist from
 - Javascript
 - HTML
 - CSS
+- CSS Transition
