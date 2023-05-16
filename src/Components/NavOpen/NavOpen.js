@@ -6,7 +6,7 @@ import Playlist from '../Playlist/Playlist';
 function NavOpen(props) {
     function toggleClass(playlist) {
         if (!props.selectedPlaylist) {
-            return;
+            return "Not-selected";
         } else {
             if (playlist.id === props.selectedPlaylist.id) {
             return "Selected";
