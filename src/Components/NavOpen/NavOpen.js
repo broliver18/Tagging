@@ -4,6 +4,18 @@ import './NavOpen.css';
 import Playlist from '../Playlist/Playlist';
 
 function NavOpen(props) {
+    function toggleClass(playlist) {
+        if (!props.selectedPlaylist) {
+            return;
+        } else {
+            if (playlist.id === props.selectedPlaylist.id) {
+            return "Selected";
+            } else {
+            return "Not-selected";
+            };
+        };
+    };
+
     function login() {
         props.onLogin();
         props.getProfile();
@@ -41,7 +53,8 @@ function NavOpen(props) {
                     return <Playlist playlist={playlist}
                             key={playlist.id}
                             isAddition={false}
-                            onSelect={props.onSelect} />   
+                            onSelect={props.onSelect} 
+                            toggleClass={toggleClass(playlist)} />   
                     })
                 }
             </div>

@@ -18,20 +18,23 @@ function Playlist(props) {
             } else {
             return <button className="Add-button" onClick={() => {
                     toggleSelect();
-                    props.onAdd(props.playlist)
+                    props.onAdd(props.playlist);
                  }}>+</button>
             }
         };
     };
 
-    function selectPlaylist() {
-        if (!props.isAddition) props.onSelect(props.playlist);
+    function selectPlaylist(e) {
+        if (!props.isAddition) {
+            e.stopPropagation();
+            props.onSelect(props.playlist);
+        };    
     };
 
     return (
         <div className="Playlist">
             <div className={props.isAddition ? "Playlist-to-add" : "Playlist-information"}>
-                <h3 onClick={selectPlaylist}>{props.playlist.name}</h3>
+                <h3 className={props.toggleClass} onClick={selectPlaylist}>{props.playlist.name}</h3>
             </div>
             {renderAction()}
         </div>

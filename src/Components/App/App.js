@@ -176,14 +176,16 @@ function App() {
     <div>
       <div className="Container">
         <Navigation playlists={playlists} onSelect={selectPlaylist}
-                onLogin={loadPlaylists} getProfile={getProfile} name={username} /> 
+                onLogin={loadPlaylists} getProfile={getProfile} name={username} 
+                selectedPlaylist={selectedPlaylist} /> 
         <NavMobile toggleOpen={toggleOpen} isOpen={isOpen}
                 toggleClass={toggleClass} isActive={isActive}
                 closeNav={closeNav} >
           <NavOpen playlists={playlists} toggleOpen={toggleOpen} 
                 toggleClass={toggleClass} isActive={isActive}
                 onSelect={selectPlaylist} onLogin={loadPlaylists} 
-                getProfile={getProfile} name={username} />
+                getProfile={getProfile} name={username} 
+                selectedPlaylist={selectedPlaylist} />
         </NavMobile>  
         <div className="App">
           <SearchBar searchTerm={searchTerm} onSearch={editSearchTerm} />
