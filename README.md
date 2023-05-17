@@ -20,6 +20,7 @@ by each tag nmae, click on the select all button, and create a new playlist from
 - App will prevent playlist from being created if a playlist with that name already exists (case-sensitive)
 - 'Select All' button selects only the tracks that are displayed - once pressed, 'Deselect All' button will become available in its place
 - Responsive - works well with desktop, tablet or mobile
+- *CAUTION* - If existing playlist contains duplicate tracks, editing that playlist will not function as expected
 
 ## How to Use
 1. Download zip file of repo
