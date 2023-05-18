@@ -39,3 +39,6 @@ by each tag nmae, click on the select all button, and create a new playlist from
 - HTML
 - CSS
 - CSS Transition
+
+## Links
+Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
