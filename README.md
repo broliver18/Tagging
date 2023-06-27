@@ -9,6 +9,9 @@ With this app, it becomes easier to edit and create new playlists. For example, 
 an existing one, you could use tags to determine which playlists will contains which tracks. Once that is done, you just need to search the playlist
 by each tag nmae, click on the select all button, and create a new playlist from the selected tracks.
 
+## Links
+Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
+
 ## Featurs
 - Once a tag is created, it is saved to each track's dropdown tag menu where it can be added to other tracks by a simple click.
 - The tag options mentioned above can be deleted by clicking on the 'x' button next to it
@@ -39,6 +42,3 @@ by each tag nmae, click on the select all button, and create a new playlist from
 - HTML
 - CSS
 - CSS Transition
-
-## Links
-Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
