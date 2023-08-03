@@ -40,4 +40,4 @@ Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:70649477
 - Javascript
 - HTML
 - CSS
-- CSS Transition
+- CSSTransition
