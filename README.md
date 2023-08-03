@@ -9,8 +9,8 @@ existing ones, you could use tags to determine which playlists contain which tra
 by each tag name, click on the select all button, and create a new playlist from the selected tracks.
 
 ## Links
-Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
-Website: https://spotifytagging.netlify.app/
+- Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
+- Website: https://spotifytagging.netlify.app/
 
 ## Features
 - Once a tag is created, it is saved to each track's dropdown tag menu where it can be added to other tracks by a simple click.
