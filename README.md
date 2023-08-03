@@ -25,19 +25,19 @@ Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:70649477
 - *CAUTION* - If existing playlist contains duplicate tracks, editing that playlist will not function as expected
 
 ## How to Use
-1. Download zip file of repo
+1. Download the zip file of the repo
 2. Extract the files
 3. Open the terminal on your computer
 4. Navigate to the parent folder of the project - jamming (not jamming-main) using the `cd` command
-5. Type `npm install` into the terminal and wait for the installation to complete
-6. Type `npm start` to open application on 'http://localhost:3000'
-7. Each track contains a tag menu that appears once mouse hovers over the track
+5. Enter `npm install` into the terminal and wait for the installation to complete
+6. Enter `npm start` to open the application on 'http://localhost:3000'
+7. Each track contains a tag menu that appears once the mouse hovers over the track
 8. Start organizing your playlists
 
 ## Technologies
 - React.js
 - Spotify Web API
-- Javascript
+- JavaScript
 - HTML
 - CSS
 - CSSTransition
