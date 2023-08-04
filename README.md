@@ -10,7 +10,7 @@ by each tag name, click on the select all button, and create a new playlist from
 
 ## Links
 - Website: https://spotifytagging.netlify.app/
-- Video explanation: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
+- Video demonstration: https://www.linkedin.com/feed/update/urn:li:activity:7064947738160812032/
 
 ## Features
 - Once a tag is created, it is saved to each track's dropdown tag menu where it can be added to other tracks by a simple click.
