@@ -57,6 +57,8 @@
         width: 7rem;
         height: 3rem;
         border-radius: 35px;
+        font-size: 12px;
+        padding: 10px;
     }
 }
 
