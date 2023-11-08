@@ -114,4 +114,8 @@ svg path {
     transform: translateX(-80px);
     width: 150px;
   }
+
+  .Dropdown-tags input {
+    font-size: 16px;
+  }
 }
